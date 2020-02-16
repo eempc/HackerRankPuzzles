@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace HackerRank.Exercises {
@@ -48,5 +49,41 @@ namespace HackerRank.Exercises {
 
             return x;
         }
+
+        public static int[] LeftRotation(int[] a, int d) {
+            return a.Skip(d).Concat(a.Take(d)).ToArray();
+        }
+
+        public static int[] LeftRotation2(int[] a, int d) {
+            int[] x = a.Take(d).ToArray(); // Take the first d elements
+            int[] y = a.Skip(d).ToArray(); // Remove the first d elements
+            return y.Concat(x).ToArray();
+        }
+
+        public static int MinimumSwaps(int[] arr) {
+            int swaps = 0;
+
+            for (int i = 0; i < arr.Length; i++) {
+                // Look for the first misplaced integer
+                if (arr[i] != i + 1) {
+                    int t = i;
+
+                    // This while loop looks for the correct integer and notes the index as t
+                    while(arr[t] != i + 1) {
+                        t++;
+                    }
+
+                    // Then do the standard switcheroo
+                    int temp = arr[t];
+                    arr[t] = arr[i];
+                    arr[i] = temp;
+                    swaps++;
+                }
+            }
+
+            return swaps;
+
+        }
+
     }
 }
