@@ -30,7 +30,16 @@ namespace HackerRank {
 
             Console.WriteLine(Warmups.OddSocks(sockArray));
 
-            Console.WriteLine("---------- Cloud Jump -------------");
+            Console.WriteLine("---------- AnagramPairs -------------");
+
+            string test = "cdcd";
+            for (int startIndex = 0; startIndex < test.Length; startIndex++) {
+                for (int size = 1; size <= test.Length - startIndex; size++) {
+                    string sub =  test.Substring(startIndex, size);
+                    Console.WriteLine(sub);
+                }
+            }
+
 
 
         }

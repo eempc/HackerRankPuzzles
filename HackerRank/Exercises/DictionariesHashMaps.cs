@@ -5,6 +5,36 @@ using System.Text;
 namespace HackerRank.Exercises {
     class DictionariesHashMaps {
 
+        public static int AnagramPairs(string s = "ifailuhkqq") {
+            int count = 0;
+
+            Dictionary<string, int> dict = new Dictionary<string, int>();
+
+            for (int startIndex = 0; startIndex < s.Length; startIndex++) {
+                for (int size = 1; size <= s.Length - startIndex; size++) {
+                    string sub = Alphabetise(s.Substring(startIndex, size));
+                    if (!dict.ContainsKey(sub)) {
+                        dict.Add(sub, 1);
+                    } else {
+                        dict[sub]++;
+                    }
+                }
+            }
+
+            foreach (KeyValuePair<string, int> kvp in dict) {
+                count += (kvp.Value * (kvp.Value - 1)) / 2;
+            }
+
+            return count;
+        }
+
+        public static string Alphabetise(string s) {
+            char[] a = s.ToCharArray();
+            Array.Sort(a);
+            return new string(a);
+        }
+
+
         public static string TwoStrings(string s1, string s2) {
             // The trick is in the sentence, "one character"
             string possible = "NO";
