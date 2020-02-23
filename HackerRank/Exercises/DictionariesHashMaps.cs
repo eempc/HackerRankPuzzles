@@ -22,7 +22,7 @@ namespace HackerRank.Exercises {
             }
 
             for (int j = 1; j < arr.Count - 1; j++) {
-                if (leftDict.ContainsKey(arr[j] / r) && leftDict[arr[j] / r] > 0 
+                if (leftDict.ContainsKey(arr[j] / r) && leftDict[arr[j] / r] > 0 && arr[j] % r == 0  
                     && rightDict.ContainsKey(arr[j] * r) && rightDict[arr[j] * r] > 0) {
                     count += leftDict[arr[j] / r] * rightDict[arr[j] * r];
                 }

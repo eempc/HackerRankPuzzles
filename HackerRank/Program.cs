@@ -49,7 +49,7 @@ namespace HackerRank {
             Console.WriteLine("---------- Triplets -------------");
 
             List<long> testArr = new List<long> {
-                1, 2, 2, 4
+                1, 2, 2, 4, 2, 4, 8
             };
 
             Console.WriteLine(DictionariesHashMaps.Triplets(testArr, 2));
