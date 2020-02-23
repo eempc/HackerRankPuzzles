@@ -40,8 +40,19 @@ namespace HackerRank {
                 }
             }
 
+            int counter = 3;
+            int blah = 5;
+            counter += blah++;
 
+            Console.WriteLine(counter);
 
+            Console.WriteLine("---------- Triplets -------------");
+
+            List<long> testArr = new List<long> {
+                1, 2, 2, 4
+            };
+
+            Console.WriteLine(DictionariesHashMaps.Triplets(testArr, 2));
         }
 
 

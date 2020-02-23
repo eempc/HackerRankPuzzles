@@ -5,6 +5,41 @@ using System.Text;
 namespace HackerRank.Exercises {
     class DictionariesHashMaps {
 
+        public static int Triplets(List<long> arr, long r) {
+            int count = 0;
+            Dictionary<long, int> leftDict = new Dictionary<long, int>();
+            Dictionary<long, int> rightDict = new Dictionary<long, int>();
+
+            leftDict.Add(arr[0], 1);
+            //leftDict.Add(arr[1], 0);
+
+            for (int i = 2; i < arr.Count; i++) {
+                if (!rightDict.ContainsKey(arr[i])) {     
+                    rightDict.Add(arr[i], 1);
+                } else {
+                    rightDict[arr[i]]++;
+                }
+            }
+
+            for (int j = 1; j < arr.Count - 1; j++) {
+                if (leftDict.ContainsKey(arr[j] / r) && leftDict[arr[j] / r] > 0 
+                    && rightDict.ContainsKey(arr[j] * r) && rightDict[arr[j] * r] > 0) {
+                    count += leftDict[arr[j] / r] * rightDict[arr[j] * r];
+                }
+
+                if (leftDict.ContainsKey(arr[j])) {
+                    leftDict[arr[j]]++;
+                } else {
+                    leftDict.Add(arr[j], 1);
+                }
+
+                rightDict[arr[j + 1]]--;
+            }
+
+            return count;
+        }
+
+
         public static int AnagramPairs(string s = "ifailuhkqq") {
             int count = 0;
 
@@ -24,6 +59,28 @@ namespace HackerRank.Exercises {
             foreach (KeyValuePair<string, int> kvp in dict) {
                 count += (kvp.Value * (kvp.Value - 1)) / 2;
             }
+
+            return count;
+        }
+
+        public static int AnagramPairs2(string s = "ifailuhkqq") {
+            int count = 0;
+            Dictionary<string, int> dict = new Dictionary<string, int>();
+
+            for (int startIndex = 0; startIndex < s.Length; startIndex++) {
+                for (int size = 1; size <= s.Length - startIndex; size++) {
+                    string sub = Alphabetise(s.Substring(startIndex, size));
+                    if (!dict.ContainsKey(sub)) {
+                        dict.Add(sub, 1);
+                    } else {
+                        count += dict[sub]++;
+                    }
+                }
+            }
+
+            //foreach (KeyValuePair<string, int> kvp in dict) {
+            //    count += (kvp.Value * (kvp.Value - 1)) / 2;
+            //}
 
             return count;
         }
