@@ -5,6 +5,20 @@ using System.Text;
 namespace HackerRank.Exercises {
     public class Strings {
 
+        public static int AlternatingCharacters(string s) {
+            List<char> list = new List<char>();
+            list.Add(s[0]);
+
+            for (int i = 1; i < s.Length; i++) {
+                if (s[i] != s[i-1]) {
+                    list.Add(s[i]);
+                }
+            }
+
+            return s.Length - list.Count;
+        }
+
+
         public static int MakeAnagrams(string a, string b) {
             int count = 0;
 
@@ -26,13 +40,8 @@ namespace HackerRank.Exercises {
                 }
             }
 
-            foreach (KeyValuePair<char, int> kvp in dict) {
-                if (kvp.Value < 0) {
-                    count -= kvp.Value;
-                } else {
-                    count += kvp.Value;
-                }
-            }
+            foreach (KeyValuePair<char, int> kvp in dict)
+                count += Math.Abs(kvp.Value);
 
             return count;
         }
