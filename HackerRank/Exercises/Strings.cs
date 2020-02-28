@@ -4,18 +4,45 @@ using System.Text;
 
 namespace HackerRank.Exercises {
     public class Strings {
+        public static string SherlockValidString(string s) {
+            Dictionary<char, int> charDict = new Dictionary<char, int>();
 
-        public static int AlternatingCharacters(string s) {
-            List<char> list = new List<char>();
-            list.Add(s[0]);
-
-            for (int i = 1; i < s.Length; i++) {
-                if (s[i] != s[i-1]) {
-                    list.Add(s[i]);
+            foreach (char c in s) {
+                if (charDict.ContainsKey(c)) {
+                    charDict[c]++;
+                } else {
+                    charDict.Add(c, 1);
                 }
             }
 
-            return s.Length - list.Count;
+            Dictionary<int, int> frequencyDictionary = new Dictionary<int, int>();
+            
+            foreach (KeyValuePair<char, int> kvp in charDict) {
+                if (frequencyDictionary.ContainsKey(kvp.Value)) {
+                    frequencyDictionary[kvp.Value]++;
+                } else {
+                    frequencyDictionary.Add(kvp.Value, 1);
+                }
+            }
+
+            return s.Length % charDict.Count <= 1 ? "YES" : "NO"; // Has not worked
+        }
+
+        public static int AlternatingCharacters(string s) {
+            //List<char> list = new List<char>();
+            //list.Add(s[0]);
+            int count = 0;
+
+            for (int i = 0; i < s.Length - 1; i++) {
+                if (s[i] == s[i+1]) {
+                    //list.Add(s[i]);
+                    count++;
+                }
+            }
+
+            return count;
+            //return s.Length - count;
+            //return s.Length - list.Count;       
         }
 
 
