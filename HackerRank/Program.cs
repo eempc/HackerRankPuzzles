@@ -56,7 +56,7 @@ namespace HackerRank {
 
             Console.WriteLine("---------- Super reduced string -------------");
 
-            //Console.WriteLine(Strings.SuperReducedString("aaabccddd"));
+            Console.WriteLine(Strings.SuperReducedString("aaabccddd"));
         }
 
 

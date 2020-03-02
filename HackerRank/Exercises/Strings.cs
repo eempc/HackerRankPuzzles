@@ -6,18 +6,19 @@ namespace HackerRank.Exercises {
     public class Strings {
         
 
-        public static string SuperReducedString(string s) {
-            List<char> outPut = new List<char>();
-
-            for (int i = 0; i < s.Length; i++) {
-
+        public static string SuperReducedString(string s) {           
+            for (int i = 1; i < s.Length; i++) {
+                if (s[i] == s[i-1]) {
+                    s = s.Substring(0, i - 1) + s.Substring(i + 1);
+                    i = 0;
+                }
             }
 
-            if (outPut.Count == 0) {
+            if (s.Length == 0) {
                 return "Empty String";
             }
 
-            return new string(outPut.ToArray());
+            return s;
         }
 
         public static string SherlockValidString(string s) {
