@@ -6,6 +6,7 @@ namespace HackerRank.Exercises {
     class DictionariesHashMaps {
 
         public static int Triplets(List<long> arr, long r) {
+            // Failed this one
             int count = 0;
             Dictionary<long, int> leftDict = new Dictionary<long, int>();
             Dictionary<long, int> rightDict = new Dictionary<long, int>();

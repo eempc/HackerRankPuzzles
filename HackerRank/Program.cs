@@ -53,6 +53,10 @@ namespace HackerRank {
             };
 
             Console.WriteLine(DictionariesHashMaps.Triplets(testArr, 2));
+
+            Console.WriteLine("---------- Super reduced string -------------");
+
+            //Console.WriteLine(Strings.SuperReducedString("aaabccddd"));
         }
 
 

@@ -4,6 +4,22 @@ using System.Text;
 
 namespace HackerRank.Exercises {
     public class Strings {
+        
+
+        public static string SuperReducedString(string s) {
+            List<char> outPut = new List<char>();
+
+            for (int i = 0; i < s.Length; i++) {
+
+            }
+
+            if (outPut.Count == 0) {
+                return "Empty String";
+            }
+
+            return new string(outPut.ToArray());
+        }
+
         public static string SherlockValidString(string s) {
             Dictionary<char, int> charDict = new Dictionary<char, int>();
 
