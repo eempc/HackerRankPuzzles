@@ -4,6 +4,56 @@ using System.Text;
 
 namespace HackerRank.Exercises {
     public class Strings {
+
+        
+
+        public static int StrongPassword0(string password) {
+            int count = 0;
+
+            bool containsDigit = false;
+            bool containsLower = false;
+            bool containsUpper = false;
+            bool containsSpecial = false;
+
+            char[] specials = { '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+' };
+
+            foreach (char c in password) {
+                if (char.IsDigit(c)) {
+                    containsDigit = true;
+                }
+                if (char.IsLower(c)) {
+                    containsLower = true;
+                }
+                if (char.IsUpper(c)) {
+                    containsUpper = true;
+                }
+                if (Array.Exists(specials, e => e == c)) {
+                    containsSpecial = true;
+                }
+            }
+
+            if (!containsDigit) {
+                count++;
+            }
+
+            if (!containsLower) {
+                count++;
+            }
+
+            if (!containsUpper) {
+                count++;
+            }
+
+            if (!containsSpecial) {
+                count++;
+            }
+
+            if (password.Length + count < 6) {
+                count += 6 - password.Length - count;
+            }
+
+            return count;
+        }
         
         public static int CamelCase(string s) {
             int count = 1;
