@@ -5,6 +5,17 @@ using System.Text;
 namespace HackerRank.Exercises {
     public class Strings {
         
+        public static int CamelCase(string s) {
+            int count = 1;
+
+            foreach (char c in s) {
+                if (char.IsUpper(c)) {
+                    count++;
+                }
+            }
+
+            return count;
+        }
 
         public static string SuperReducedString(string s) {           
             for (int i = 1; i < s.Length; i++) {
