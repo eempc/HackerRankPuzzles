@@ -1,12 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace HackerRank.Exercises {
     public class Strings {
 
-        
+        // LINQ version
+        public static int StrongPassword1(string password) {
+            int count = 0;
 
+            char[] specials = "!@#$%^&*()-+".ToCharArray();
+
+            if (!password.Any(char.IsDigit)) count++;
+            if (!password.Any(char.IsUpper)) count++;
+            if (!password.Any(char.IsLower)) count++;
+            if (!specials.Any(password.Contains)) count++;
+
+            return (password.Length + count > 6) ? count : 6 - password.Length;
+        }
+        
+        // Long version
         public static int StrongPassword0(string password) {
             int count = 0;
 
@@ -18,38 +32,19 @@ namespace HackerRank.Exercises {
             char[] specials = { '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+' };
 
             foreach (char c in password) {
-                if (char.IsDigit(c)) {
-                    containsDigit = true;
-                }
-                if (char.IsLower(c)) {
-                    containsLower = true;
-                }
-                if (char.IsUpper(c)) {
-                    containsUpper = true;
-                }
-                if (Array.Exists(specials, e => e == c)) {
-                    containsSpecial = true;
-                }
+                if (char.IsDigit(c)) containsDigit = true;
+                if (char.IsLower(c)) containsLower = true;
+                if (char.IsUpper(c)) containsUpper = true;
+                if (Array.Exists(specials, e => e == c)) containsSpecial = true;
             }
 
-            if (!containsDigit) {
-                count++;
-            }
-
-            if (!containsLower) {
-                count++;
-            }
-
-            if (!containsUpper) {
-                count++;
-            }
-
-            if (!containsSpecial) {
-                count++;
-            }
-
+            if (!containsDigit) count++;
+            if (!containsLower) count++;
+            if (!containsUpper)  count++;
+            if (!containsSpecial) count++;
+            
             if (password.Length + count < 6) {
-                count += 6 - password.Length - count;
+                count = 6 - password.Length;
             }
 
             return count;
