@@ -5,6 +5,20 @@ using System.Text;
 
 namespace HackerRank.Exercises {
     public class Warmups {
+
+        public static int DiagonalDifference(List<List<int>> arr) {
+            int primaryDiagonal = 0;
+            int secondaryDiagonal = 0;
+            int n = arr.Count;
+
+            for (int i = 0; i < n; i++) {
+                primaryDiagonal += arr[i][i];
+                secondaryDiagonal += arr[i][n - i - 1];
+            }
+
+            return Math.Abs(primaryDiagonal - secondaryDiagonal);
+        }
+
         public static int CloudJump(int[] c) {
             int count = 0;
 
