@@ -6,10 +6,78 @@ using System.Text;
 namespace HackerRank.Exercises {
     public class Strings {
 
+        public static int SpecialString2 (int n, string s) {
+            int count = n;
+            
+            for (int i = 0; i < s.Length; i++) {
+                char startChar = s[i];
+
+                for (int j = i + 1; j < s.Length; j++) {
+                    
+
+
+                }
+
+            }
+
+
+            return count;
+        }
+
+
+        // This works but times out
+        public static int SpecialString(int n, string s) {
+            int count = n;
+
+            for (int i = 0; i < n; i++) {
+                for (int size = 2; size < n - i + 1; size++) {
+                    string subString = s.Substring(i, size);
+                    int subSize = subString.Length;
+                    
+                    Dictionary<char, int> dict = new Dictionary<char, int>();
+
+                    if (subSize % 2 == 0) {
+                        foreach (char c in subString) {
+                            if (dict.ContainsKey(c)) {
+                                dict[c]++;
+                            } else {
+                                dict.Add(c, 1);
+                            }
+                        }
+
+                        if (dict.Count == 1) {
+                            count++;
+                        }
+                    } else {
+                        char middleChar = subString[subSize / 2];
+                        dict.Add(middleChar, 1);
+
+                        foreach (char c in subString) {
+                            if (dict.ContainsKey(c)) {
+                                dict[c]++;
+                            } else {
+                                dict.Add(c, 1);
+                            }
+                        }
+
+                        if (dict.Count == 1 || (dict.Count == 2 && dict[middleChar] <= 2)) {
+                            count++;
+                        }
+                    }
+
+
+
+                }
+            }
+
+            return count;
+        }
+
+
+
         // LINQ version
         public static int StrongPassword1(string password) {
             int count = 0;
-
             char[] specials = "!@#$%^&*()-+".ToCharArray();
 
             if (!password.Any(char.IsDigit)) count++;

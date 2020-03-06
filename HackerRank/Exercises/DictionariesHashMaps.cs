@@ -4,30 +4,35 @@ using System.Text;
 
 namespace HackerRank.Exercises {
     class DictionariesHashMaps {
+
+
+
+        // This works but times out
         public static List<int> FrequencyQueries(List<List<int>> queries) {
             Dictionary<int, int> dict = new Dictionary<int, int>();
             List<int> result = new List<int>();
 
             foreach (List<int> query in queries) {
-                if (query[0] == 1) {
-                    if (dict.ContainsKey(query[1])) {
-                        dict[query[1]]++;
-                    } else {
-                        dict.Add(query[1], 1);
-                    }
-                    
-                } else if (query[0] == 2) {
-                    if (dict.ContainsKey(query[1]) && dict[query[1]] > 0) {
-                        dict[query[1]]--;
-                    }
-
-                } else {
-                   if (dict.ContainsValue(query[1])) {
-                        result.Add(1);
-                   } else {
-                        result.Add(0);
-                   }
-
+                switch (query[0]) {
+                    case 1:
+                        if (dict.ContainsKey(query[1])) {
+                            dict[query[1]]++;
+                        } else {
+                            dict.Add(query[1], 1);
+                        }
+                        break;
+                    case 2:
+                        if (dict.ContainsKey(query[1]) && dict[query[1]] > 0) {
+                            dict[query[1]]--;
+                        }
+                        break;
+                    case 3:
+                        if (dict.ContainsValue(query[1])) {
+                            result.Add(1);
+                        } else {
+                            result.Add(0);
+                        }
+                        break;
                 }
             }
 
