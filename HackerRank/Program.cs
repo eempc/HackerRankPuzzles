@@ -70,6 +70,10 @@ namespace HackerRank {
                 }
             }
 
+            Console.WriteLine("-------Bubble------");
+
+            Sorting.CountBubbleSortSwaps(new int[] { 5, 3, 1, 2 });
+
         }
 
 
