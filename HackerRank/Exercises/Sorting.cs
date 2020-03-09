@@ -1,9 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace HackerRank.Exercises {
     class Sorting {
+
+        public static int MarkAndToys(int[] prices, int k) {
+            int count = 0;
+            int total = 0;
+
+            Array.Sort(prices);
+
+            foreach (int x in prices) {
+                total += x;
+                if (total > k) break;
+                count++;
+            }
+
+            return count;
+        }
+
         public static void CountBubbleSortSwaps(int[] a) {
             int count = 0;
 
