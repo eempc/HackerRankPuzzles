@@ -6,6 +6,22 @@ using System.Linq;
 namespace HackerRank.Exercises {
     class Sorting {
 
+        public static int Comparator(Player a, Player b) {
+            if (a.Score < b.Score) {
+                return 1;
+            } else if (a.Score > b.Score) {
+                return -1;
+            } else {
+                return string.Compare(a.Name, b.Name);
+            }
+        }
+
+        public class Player {
+            public string Name { get; set; }
+            public int Score { get; set; }
+        }
+
+
         public static int MarkAndToys(int[] prices, int k) {
             int count = 0;
             int total = 0;
