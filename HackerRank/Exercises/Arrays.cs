@@ -5,6 +5,22 @@ using System.Text;
 
 namespace HackerRank.Exercises {
     class Arrays {
+
+        public static string TwoArrays(int k , int[] A, int[] B) {
+            Array.Sort(A);
+            B = B.OrderByDescending(x => x).ToArray();
+
+            for (int i = 0; i < A.Length; i++) {
+                if (A[i] + B[i] < k) {
+                    return "NO";
+                }
+            }
+
+            return "YES";
+        }
+
+
+
         // New Year Chaos - could try a bubble sort or start backwards
         public static void MinimumBribes(int[] queue) {
             bool chaotic = false;
