@@ -26,17 +26,20 @@ namespace HackerRank.Exercises {
             bool chaotic = false;
             int count = 0;
 
-            for (int i = 0; i < queue.Length - 1; i++) {
-                if (queue[i] > i + 1 || queue[i] > queue[i+1]) {
-                    if (queue[i] > i + 3) {
-                        chaotic = true;
-                        break;
-                    }
-                    
-                    if (queue[i] == i + 3) {
-                        count += 2;
-                    } else {  
-                        count += 1;
+            foreach (int x in queue) {
+                for (int i = 0; i < queue.Length - 1; i++) {
+                    if (queue[i] > i + 1 || queue[i] > queue[i + 1]) {
+                        if (queue[i] > i + 3) {
+                            chaotic = true;
+                            break;
+                        }
+
+                        if (queue[i] > queue[i + 1]) {
+                            int temp = queue[i];
+                            queue[i] = queue[i + 1];
+                            queue[i + 1] = temp;
+                            count++;
+                        }
                     }
                 }
             }
