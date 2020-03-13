@@ -6,6 +6,37 @@ namespace HackerRank.Exercises {
     class DictionariesHashMaps {
 
 
+        public static int CommonCharacters(string s1, string s2) {
+            int count = 0;
+            Dictionary<char, int> dict1 = new Dictionary<char, int>();
+            Dictionary<char, int> dict2 = new Dictionary<char, int>();
+
+            foreach (char c in s1) {
+                if (dict1.ContainsKey(c)) {
+                    dict1[c]++;
+                } else {
+                    dict1.Add(c, 1);
+                }
+            }
+
+            foreach (char c in s2) {
+                if (dict2.ContainsKey(c)) {
+                    dict2[c]++;
+                } else {
+                    dict2.Add(c, 1);
+                }
+            }
+
+            foreach (KeyValuePair<char, int> kvp in dict1) {
+                if (dict2.ContainsKey(kvp.Key)) {
+                    count += Math.Min(kvp.Value, dict2[kvp.Key]);
+                }
+            }
+
+            return count;
+        }
+
+
 
         // This works but times out
         public static List<int> FrequencyQueries(List<List<int>> queries) {
