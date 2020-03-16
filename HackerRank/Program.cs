@@ -74,6 +74,33 @@ namespace HackerRank {
 
             Sorting.CountBubbleSortSwaps(new int[] { 5, 3, 1, 2 });
 
+            Console.WriteLine("-------Luck Balance------");
+
+            int[][] contests = new int[6][];
+            contests[0] = new int[] { 5, 1 };
+            contests[1] = new int[] { 2, 1 };
+            contests[2] = new int[] { 1, 1 };
+            contests[3] = new int[] { 8, 1 };
+            contests[4] = new int[] { 10, 0 };
+            contests[5] = new int[] { 5, 0 };
+
+            List<int> importants = new List<int>();
+
+            for (int i = 0; i < contests.Length; i++) {
+                if (contests[i][1] == 1) {
+                    importants.Add(contests[i][0]);
+                } else {
+                    //luck += contests[i][0];
+                }
+            }
+
+            importants = importants.OrderByDescending(x => x).ToList();
+
+            foreach (int x in importants) {
+                Console.WriteLine(x);
+            }
+                
+
         }
 
 
