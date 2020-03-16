@@ -11,29 +11,21 @@ namespace HackerRank.Exercises {
             foreach (char c in s) {
                 switch (c) {
                     case ']':
-                        if (stack.Count == 0) {
-                            return "NO";
-                        } else if (stack.Peek() == '[') {
+                        if (stack.Count > 0 && stack.Peek() == '[') {
                             stack.Pop();
                         } else {
                             return "NO";
                         }
                         break;
                     case '}':
-                        if (stack.Count == 0) {
-                            return "NO";
-                        }
-                        else if(stack.Peek() == '{') {
+                        if(stack.Count > 0 && stack.Peek() == '{') {
                             stack.Pop();
                         } else {
                             return "NO";
                         }
                         break;
                     case ')':
-                        if (stack.Count == 0) {
-                            return "NO";
-                        }
-                        else if(stack.Peek() == '(') {
+                        if(stack.Count > 0 && stack.Peek() == '(') {
                             stack.Pop();
                         } else {
                             return "NO";
