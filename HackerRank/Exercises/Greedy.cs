@@ -6,6 +6,8 @@ using System.Linq;
 namespace HackerRank.Exercises {
     class Greedy {
 
+
+
         static int LuckBalance(int k, int[][] contests) {
             int luck = 0;
 
