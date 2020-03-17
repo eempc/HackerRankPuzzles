@@ -5,7 +5,26 @@ using System.Text;
 namespace HackerRank.Exercises {
     class StacksQueues {
 
+        static int CastleGrid(string[] grid, int startX, int startY, int goalX, int goalY) {
+            int count = 0;
+
+
+            return count;
+        }
+
+        public enum Direction {
+            Up = 0,
+            Down = 1,
+            Left = 2,
+            Right = 3
+        }
+
+
         static string BalancedBrackets(string s) {
+            if (s.Length % 2 == 1) {
+                return "NO";
+            }
+
             Stack<char> stack = new Stack<char>();
 
             foreach (char c in s) {
