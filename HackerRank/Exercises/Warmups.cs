@@ -6,6 +6,21 @@ using System.Text;
 namespace HackerRank.Exercises {
     public class Warmups {
 
+        static void StairCase(int n) {
+            for (int i = 1; i <= n; i++) {
+                for (int j = n - i; j > 0; j--) {
+                    Console.Write(" ");
+                    if (j == 0) Console.Write("\r\n");
+                }
+                
+                for (int k = 0; k < i; k++) {
+                    Console.Write("#");
+                    if (k == i - 1) Console.Write("\r\n");
+                }
+                
+            }
+        }
+
         static void PlusMinus(int[] arr) {
             double n = Convert.ToDouble(arr.Length);
 
