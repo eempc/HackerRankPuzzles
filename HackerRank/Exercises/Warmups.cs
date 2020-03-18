@@ -6,6 +6,28 @@ using System.Text;
 namespace HackerRank.Exercises {
     public class Warmups {
 
+        static void PlusMinus(int[] arr) {
+            double n = Convert.ToDouble(arr.Length);
+
+            int positives = 0;
+            int negatives = 0;
+            int zeroes = 0;
+
+            foreach (int x in arr) {
+                if (x > 0) positives++;
+                else if (x < 0) negatives++;
+                else zeroes++;
+            }
+
+            double positiveRatio = positives / n;
+            double negativeRatio = negatives / n;
+            double zeroRatio = zeroes / n;
+
+            Console.WriteLine(positiveRatio);
+            Console.WriteLine(negativeRatio);
+            Console.WriteLine(zeroRatio);
+        }
+
         public static int DiagonalDifference(List<List<int>> arr) {
             int primaryDiagonal = 0;
             int secondaryDiagonal = 0;
