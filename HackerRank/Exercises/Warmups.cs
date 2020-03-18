@@ -6,6 +6,13 @@ using System.Text;
 namespace HackerRank.Exercises {
     public class Warmups {
 
+        static void StairCase2(int n) {
+            for (int i = 0; i < n; i++) {
+                string str = new string('#', i + 1).PadLeft(n, ' ')
+                Console.WriteLine(str);
+            }
+        }
+
         static void StairCase(int n) {
             for (int i = 1; i <= n; i++) {
                 for (int j = n - i; j > 0; j--) {
