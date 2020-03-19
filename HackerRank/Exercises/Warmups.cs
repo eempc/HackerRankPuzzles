@@ -5,12 +5,15 @@ using System.Text;
 
 namespace HackerRank.Exercises {
     public class Warmups {
+
+
         static void MinMax(int[] arr) {
-            Array.Sort(arr);
+            Array.Sort(arr); // O(n log n)
 
             long max = 0;
             long min = 0;
 
+            // O(n)
             for (int i = 0; i < 4; i++) {
                 min += arr[i];
                 max += arr[arr.Length - 1 - i];
@@ -20,6 +23,24 @@ namespace HackerRank.Exercises {
 
         }
 
+        static void MinMax2(int[] arr) {
+            // O(n) solution
+            long sum = 0;
+            long max = 0;
+            long min = Int64.MaxValue;
+
+            for (int i = 0; i < arr.Length; i++) {
+                sum += arr[i];
+                if (arr[i] > max) max = arr[i];
+                if (arr[i] < min) min = arr[i];
+            }
+
+            long resultSmallest = sum - max;
+            long resultBiggest = sum - min;
+
+            Console.WriteLine(resultSmallest + " " + resultBiggest);
+
+        }
 
         static void StairCase2(int n) {
             for (int i = 0; i < n; i++) {
