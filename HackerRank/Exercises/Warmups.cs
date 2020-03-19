@@ -5,10 +5,25 @@ using System.Text;
 
 namespace HackerRank.Exercises {
     public class Warmups {
+        static void MinMax(int[] arr) {
+            Array.Sort(arr);
+
+            long max = 0;
+            long min = 0;
+
+            for (int i = 0; i < 4; i++) {
+                min += arr[i];
+                max += arr[arr.Length - 1 - i];
+            }
+
+            Console.WriteLine(min + " " + max);
+
+        }
+
 
         static void StairCase2(int n) {
             for (int i = 0; i < n; i++) {
-                string str = new string('#', i + 1).PadLeft(n, ' ')
+                string str = new string('#', i + 1).PadLeft(n, ' ');
                 Console.WriteLine(str);
             }
         }
