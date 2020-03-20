@@ -5,7 +5,24 @@ using System.Text;
 
 namespace HackerRank.Exercises {
     public class Warmups {
+        static int BirthdayCakeCandles(int[] ar) {
+            int count = 0;
+            int largest = 0;
 
+            // Do this in one pass O(n) rather than the naive version of sorting first then seeing how many equal the largest number
+            for (int i = 0; i < ar.Length; i++) {
+                if (ar[i] > largest) {
+                    largest = ar[i];
+                    count = 0;
+                } 
+                
+                if (ar[i] == largest) {
+                    count++;
+                }
+            }
+
+            return count;
+        }
 
         static void MinMax(int[] arr) {
             Array.Sort(arr); // O(n log n)
