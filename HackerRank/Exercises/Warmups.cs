@@ -6,6 +6,16 @@ using System.Text;
 namespace HackerRank.Exercises {
     public class Warmups {
 
+
+        static int[] ReverseArray(int[] a) {
+            int[] x = new int[a.Length];
+            for (int i = 0; i < a.Length; i++) {
+                x[x.Length - i - 1] = a[i];
+            }
+            return x;
+        }
+
+
         static string TimeConversion(string s) {
             char[] arr = s.ToCharArray();
 
