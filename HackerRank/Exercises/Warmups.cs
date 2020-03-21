@@ -5,6 +5,18 @@ using System.Text;
 
 namespace HackerRank.Exercises {
     public class Warmups {
+        public static void LeftRotation(int n, int d, int[] a) {
+            int[] x = new int[n];
+            for (int i = 0; i < n; i++) {
+                int index = (n - d + i) % n;
+                x[index] = a[i];
+            }
+            foreach (int y in x) {
+                Console.Write(y);
+                Console.Write(" ");
+            }
+        }
+
 
 
         static int[] ReverseArray(int[] a) {
