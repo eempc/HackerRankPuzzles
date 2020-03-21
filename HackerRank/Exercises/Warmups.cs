@@ -5,6 +5,34 @@ using System.Text;
 
 namespace HackerRank.Exercises {
     public class Warmups {
+
+        static string TimeConversion(string s) {
+            char[] arr = s.ToCharArray();
+
+            if (arr[8] == 'A') {
+                if (arr[0] == '1' && arr[1] == '2') {
+                    arr[0] = '0';
+                    arr[1] = '0';
+                }
+                return new string(arr).Substring(0,8);
+            }
+
+            if (arr[0] == '1' && arr[1] == '2') {
+                return new string(arr).Substring(0, 8);
+            }
+
+            arr[0]++;
+
+            arr[1]++;
+            arr[1]++;
+
+            return new string(arr).Substring(0, 8);
+
+        }
+
+
+
+
         static int BirthdayCakeCandles(int[] ar) {
             int count = 0;
             int largest = 0;
