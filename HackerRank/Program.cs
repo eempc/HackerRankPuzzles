@@ -103,7 +103,7 @@ namespace HackerRank {
             Console.WriteLine("----------Left Rotation----------------");
 
             int[] wah = { 1, 2, 3, 4, 5 };
-           Warmups.LeftRotation(5, 2, wah);
+           Warmups.LeftRotation2(5, 2, wah);
         }
 
 

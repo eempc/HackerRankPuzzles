@@ -17,7 +17,10 @@ namespace HackerRank.Exercises {
             }
         }
 
+        public static void LeftRotation2(int n, int d, int[] a) {
+            
 
+        }
 
         static int[] ReverseArray(int[] a) {
             int[] x = new int[a.Length];
