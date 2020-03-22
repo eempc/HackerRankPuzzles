@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace HackerRank.Exercises {
     class Algorithms {
@@ -25,6 +26,13 @@ namespace HackerRank.Exercises {
             Console.WriteLine(countOranges);
         }
 
+        static void CountApplesAndOrangesLinq(int s, int t, int a, int b, int[] apples, int[] oranges) {
+            int countApples = apples.Count(x => x + a >= s && x + a <= t);
+            int countOranges = oranges.Count(x => x + b <= t && x + b >= s);
+
+            Console.WriteLine(countApples);
+            Console.WriteLine(countOranges);
+        }
 
         static List<int> GradingStudents(List<int> grades) {
             List<int> result = new List<int>();
