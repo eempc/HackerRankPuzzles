@@ -7,11 +7,15 @@ namespace HackerRank.Exercises {
     class Algorithms {
 
         static string kangaroo(int x1, int v1, int x2, int v2) {
-            int distance = v2 - v1;
-            int start = x1 - x2;
-            bool canCatchUp = v2 < v1;
+            int jumpDistance = v2 - v1; // 3 and 5 = 2
+            int distanceDelta = x1 - x2; // 0 and 6 = -6
+            bool canCatchUp = v2 < v1; // Firstly determine if k1 can catch up with k2 given that k2 always starts ahead
 
-            if (canCatchUp && start % distance == 0) {
+            // next use straight line equations 2x + 1 and 1x + 2 as examples where x is number of jumps
+            // Subtract them according to the above formulas oppositely
+            // Determine if the modulo is 0
+
+            if (canCatchUp && distanceDelta % jumpDistance == 0) {
                 return "YES";
             }
 
