@@ -6,6 +6,19 @@ using System.Linq;
 namespace HackerRank.Exercises {
     class Algorithms {
 
+        static string kangaroo(int x1, int v1, int x2, int v2) {
+            int distance = v2 - v1;
+            int start = x1 - x2;
+            bool canCatchUp = v2 < v1;
+
+            if (canCatchUp && start % distance == 0) {
+                return "YES";
+            }
+
+            return "NO";
+        }
+
+
         static void countApplesAndOranges(int s, int t, int a, int b, int[] apples, int[] oranges) {
             int countApples = 0;
             int countOranges = 0;
