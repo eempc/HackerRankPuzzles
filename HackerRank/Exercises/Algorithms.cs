@@ -6,8 +6,28 @@ using System.Linq;
 namespace HackerRank.Exercises {
     class Algorithms {
 
+        static int[] breakingRecords(int[] scores) {
+            int[] result = new int[2];
+
+            int max = scores[0];
+            int min = scores[0];
+
+            foreach (int x in scores) {
+                if (x > max) {
+                    result[0]++;
+                    max = x;
+                } else if (x < min) {
+                    result[1]++;
+                    min = x;
+                }
+            }
+
+            return result;
+        }
+
+
         static string kangaroo(int x1, int v1, int x2, int v2) {
-            int jumpDistance = v2 - v1; // 3 and 5 = 2
+            int jumpDistance = v2 - v1; // 3 and 5 = 2 - which way round doesn't matter
             int distanceDelta = x1 - x2; // 0 and 6 = -6
             bool canCatchUp = v2 < v1; // Firstly determine if k1 can catch up with k2 given that k2 always starts ahead
 
