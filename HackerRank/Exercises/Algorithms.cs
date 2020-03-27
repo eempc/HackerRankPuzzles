@@ -6,6 +6,31 @@ using System.Linq;
 namespace HackerRank.Exercises {
     class Algorithms {
 
+        static int BirthdayChocolate(List<int> s, int d, int m) {
+            int count = 0;
+
+            for (int i = 0; i < s.Count() - m + 1; i++) {
+                int x = 0;
+                for (int j = i; j < i + m; j++) {
+                    x += s[j];
+                }
+                if (x == d) count++;
+            }
+
+            return count;
+        }
+
+        static int BirthdayChocolateLinq(List<int> s, int d, int m) {
+            int count = 0;
+
+            for (int i = 0; i < s.Count() - m + 1; i++) {
+                int x = s.Skip(i).Take(m).Sum();
+                if (x == d) count++;
+            }
+
+            return count;
+        }
+
         static int[] breakingRecords(int[] scores) {
             int[] result = new int[2];
 
