@@ -6,6 +6,18 @@ using System.Linq;
 namespace HackerRank.Exercises {
     class Algorithms {
 
+
+
+        static void bonAppetit(List<int> bill, int k, int b) {
+            int share = (bill.Sum() - bill[k]) / 2;
+            if (share == b) {
+                Console.WriteLine("Bon Appetit");
+            } else {
+                Console.WriteLine(b - share);
+            }
+
+        }
+
         static int BirthdayChocolate(List<int> s, int d, int m) {
             int count = 0;
 
