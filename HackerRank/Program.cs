@@ -104,6 +104,10 @@ namespace HackerRank {
 
             int[] wah = { 1, 2, 3, 4, 5 };
            Warmups.LeftRotation2(5, 2, wah);
+
+            Console.WriteLine("------Page Count-----");
+            Console.WriteLine(Algorithms.pageCount(6, 2));
+               
         }
 
 

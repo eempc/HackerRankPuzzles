@@ -6,7 +6,51 @@ using System.Linq;
 namespace HackerRank.Exercises {
     class Algorithms {
 
+        public static int pickingNumbers(List<int> a) {
+            a.Sort();
 
+            int best = 0;
+            int temp = 0;
+
+            for (int i = 0; i < a.Count(); i++) {
+                temp = 1;
+                if (i > 0 && a[i] == a[i-1]) {
+                    continue;
+                }
+
+                for (int j = i + 1; j < a.Count(); j++) {
+                    if (a[j] - a[i] <= 1) {
+                        temp++;
+                    } else {
+                        break;
+                    }
+                }
+                if (temp > best) {
+                    best = temp;
+                }
+            }
+
+            return best;
+        }
+
+
+
+
+
+        public static int pageCount(int n, int p) {
+
+
+            Console.WriteLine(Math.Min(p / 2, (n + 1 - p) / 2));
+            Console.WriteLine(Math.Min(p / 2, n / 2 - p / 2));
+
+            if (p <= n / 2) {
+                return p / 2;
+            } else {
+                return (n + 1 - p) / 2;
+            }
+
+            
+        }
 
         static void bonAppetit(List<int> bill, int k, int b) {
             int share = (bill.Sum() - bill[k]) / 2;
