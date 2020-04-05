@@ -6,28 +6,29 @@ using System.Linq;
 namespace HackerRank.Exercises {
     class Algorithms {
 
+
+
         public static int pickingNumbers(List<int> a) {
+            // Sort the array
+            
             a.Sort();
 
             int best = 0;
-            int temp = 0;
 
             for (int i = 0; i < a.Count(); i++) {
-                temp = 1;
-                if (i > 0 && a[i] == a[i-1]) {
+                int temp = 1;
+                if (i > 0 && a[i] == a[i-1]) // only for sorted array
                     continue;
-                }
 
                 for (int j = i + 1; j < a.Count(); j++) {
-                    if (a[j] - a[i] <= 1) {
+                    if (a[j] - a[i] <= 1) 
                         temp++;
-                    } else {
-                        break;
-                    }
+                    else 
+                        break; // only for sorted array
                 }
-                if (temp > best) {
+
+                if (temp > best)
                     best = temp;
-                }
             }
 
             return best;
