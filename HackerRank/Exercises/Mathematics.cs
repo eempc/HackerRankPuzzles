@@ -5,6 +5,12 @@ using System.Text;
 namespace HackerRank.Exercises {
     class Mathematics {
 
+        static int lowestTriangle(int b, int area) {
+            double a = Convert.ToDouble(area);
+            double w = Convert.ToDouble(b);
+            return Convert.ToInt32(Math.Ceiling((2 * a) / w));
+        }
+
         static int maximumDraws(int n) {
             /*
              * Write your code here.
