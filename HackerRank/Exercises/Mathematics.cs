@@ -4,6 +4,60 @@ using System.Text;
 
 namespace HackerRank.Exercises {
     class Mathematics {
+
+        static int PrimeFactors(long n) {
+            if (n <= 1) return 0;
+            if (n <= 3) return 1;
+
+            int[] primes = { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53 };
+
+            int count = 0;
+            long total = 1;
+
+            for (int i = 0; i < primes.Length; i++) {
+                if (i == 15) {
+                    return count;
+                }
+                total *= primes[i];
+                if (total <= n) {
+                    count++;
+                } else {
+                    break;
+                }
+            }
+
+            return count;
+        }
+
+        static bool IsPrimeStage0(int x) {
+            if (x <= 1) return false;
+            if (x <= 3 || x == 5 || x == 7) return true;
+
+            // First pass is O(n)
+
+            for (int i = 1; i < x; i++) {
+                if (x % i == 0) return false;
+            }
+
+            return true;
+        }
+
+
+        static bool IsPrime(int x) {
+            if (x <= 1) return false;
+            if (x <= 3 || x == 5 || x == 7) return true;
+            if (x % 2 == 0) return false;
+
+            // Final pass is O(√n/4)
+
+            for (int i = 3; i <= Math.Sqrt(x); i+=2) {                
+                if (x % i == 0) return false;
+            }
+
+            return true;
+        }
+
+
         static int gameWithCells(int n, int m) {
             if (n % 2 == 0) {
                 n /= 2;
