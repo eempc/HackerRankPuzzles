@@ -4,6 +4,10 @@ using System.Text;
 
 namespace HackerRank.Exercises {
     class Mathematics {
+        static int Handshakes(int n) {
+            // triangle numbers
+            return (n * (n - 1)) / 2;
+        }
 
         static int lowestTriangle(int b, int area) {
             double a = Convert.ToDouble(area);
