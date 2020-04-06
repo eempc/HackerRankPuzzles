@@ -4,6 +4,23 @@ using System.Text;
 
 namespace HackerRank.Exercises {
     class Mathematics {
+        static int gameWithCells(int n, int m) {
+            if (n % 2 == 0) {
+                n /= 2;
+            } else {
+                n = n / 2 + 1;
+            }
+
+            if (m % 2 == 0) {
+                m /= 2;
+            } else {
+                m = m / 2 + 1;
+            }
+
+            return n * m;
+
+        }
+
         static int Handshakes(int n) {
             // triangle numbers
             return (n * (n - 1)) / 2;
