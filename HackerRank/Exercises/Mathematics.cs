@@ -5,7 +5,28 @@ using System.Text;
 namespace HackerRank.Exercises {
     class Mathematics {
 
+        static long CuttingPaper(int n, int m) {
+            return (long)m * (long)n - 1;
+
+        }
+
+
+        static int connectingTowns(int n, int[] routes) {
+            // Multiplying every int in the array problem
+            // Deal with very large numbers by using modulo
+            int x = 1;
+            for (int i = 0; i < routes.Length; i++) {
+                x *= routes[i];
+                x %= 1234567;
+            }
+            return x;
+
+        }
+
+
         static int PrimeFactors(long n) {
+            // Count the number of consecutive prime numbers up to a certain value where
+            // if these primes are multiplied are less than the certain value
             if (n <= 1) return 0;
             if (n <= 3) return 1;
 
