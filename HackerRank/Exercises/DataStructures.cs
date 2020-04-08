@@ -16,7 +16,8 @@ namespace HackerRank.Exercises {
             Console.WriteLine(head.data);
             if (head.next != null) {
                 printLinkedList(head.next);
-            }6 
+            }
+            // If you want the list printed in reverse, put writeline after the if statement
     }
 
 
