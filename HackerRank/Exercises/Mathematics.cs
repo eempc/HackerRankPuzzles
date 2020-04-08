@@ -1,9 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace HackerRank.Exercises {
-    class Mathematics {
+    public class Mathematics {
+        public static string ExcelNumberToLetters(int x) {
+            // Number to Letter is easier than the other way round
+            // Don't forget to reverse
+            List<char> result = new List<char>();
+
+            while (x > 0) {
+                int value = x % 26;
+                char c = NumberToLetter(value);
+                result.Add(c);
+                x /= 26;
+            }
+
+            result.Reverse();
+
+            return new string(result.ToArray());
+        }
+
+        static char NumberToLetter(int x) {
+            return (char)(x + 64);
+        }
+
+        public static int ExcelLettersToNumber(string str) {
+            // In Excel we have letters to denote columns such as "AB"
+            // Convert this to a decimal number, in this case, it is 28
+
+            int total = 0;
+
+            for (int i = 0; i < str.Length; i++) {
+                int value = LetterToNumber(str[str.Length - 1 - i]) * (int)Math.Pow(26,i);
+                total += value;
+            }
+
+            return total;
+        }
+
+        static int LetterToNumber(char c) {
+            // character A begins at unicode 65
+            return c - 64;
+        }
+
 
         static long CuttingPaper(int n, int m) {
             return (long)m * (long)n - 1;
