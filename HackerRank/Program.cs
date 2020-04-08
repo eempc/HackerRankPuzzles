@@ -109,7 +109,7 @@ namespace HackerRank {
             Console.WriteLine(Algorithms.pageCount(6, 2));
             Console.WriteLine("-----Excel Letters-----------");
             Console.WriteLine(Mathematics.ExcelLettersToNumber("AD"));
-            Console.WriteLine(Mathematics.ExcelNumberToLetters(28));
+            Console.WriteLine(Mathematics.ExcelNumberToLetters(53));
 
         }
 

@@ -7,17 +7,18 @@ namespace HackerRank.Exercises {
     public class Mathematics {
         public static string ExcelNumberToLetters(int x) {
             // Number to Letter is easier than the other way round
-            // Don't forget to reverse
-            List<char> result = new List<char>();
+            // Don't forget to reverse the List
+            //List<char> result = new List<char>();
+            LinkedList<char> result = new LinkedList<char>();
 
             while (x > 0) {
                 int value = x % 26;
                 char c = NumberToLetter(value);
-                result.Add(c);
+                result.AddFirst(c); // In JavaScript you would .shift to avoid having to reverse an array later
                 x /= 26;
             }
 
-            result.Reverse();
+            //result.Reverse(); 
 
             return new string(result.ToArray());
         }
