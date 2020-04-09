@@ -4,6 +4,36 @@ using System.Text;
 
 namespace HackerRank.Exercises {
     public static class DataStructures {
+        static SinglyLinkedListNode InsertAtIndex(SinglyLinkedListNode head, int data, int position) {
+            if (head == null) {
+                return new SinglyLinkedListNode(data);
+            }
+
+            // Since we are going to traverse through the linked list we need to start at the head, creating a new object called ptr is a bit safer at this time
+            SinglyLinkedListNode ptr = head;
+
+            int index = 1;
+
+            // Traverse through the list O(n) operation to find the right index. Along the way update the ptr to the next object
+            while (position != index) {
+                ptr = ptr.next;
+                index++;
+            }
+
+            // Inserting the node requires a temp object
+            SinglyLinkedListNode tempNode = new SinglyLinkedListNode(data);
+
+            // The temp node needs to point to the ptr's next as we will be next overriding the ptr's next
+            tempNode.next = ptr.next;
+
+            // The ptr's next now points to our tempNode
+            ptr.next = tempNode;
+            
+            // Why would you return the head node? Aside from the question asks for it
+            // I get that we are dealing with reference types here
+            return head;
+        }
+
 
         static SinglyLinkedListNode insertNodeAtTail(SinglyLinkedListNode head, int data) {
             SinglyLinkedListNode newNode = new SinglyLinkedListNode(data);
