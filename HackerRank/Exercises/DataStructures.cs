@@ -7,12 +7,11 @@ namespace HackerRank.Exercises {
 
         static SinglyLinkedListNode insertNodeAtTail(SinglyLinkedListNode head, int data) {
             SinglyLinkedListNode newNode = new SinglyLinkedListNode(data);
-            
+            SinglyLinkedListNode tempNode = head;
+
             if (head == null) {
                 head = newNode;
             } else {
-                SinglyLinkedListNode tempNode = head;
-
                 while (tempNode.next != null) {
                     tempNode = tempNode.next;
                 }
@@ -22,6 +21,15 @@ namespace HackerRank.Exercises {
             return head;
         }
 
+        static SinglyLinkedListNode InsertAtHead(SinglyLinkedListNode llist, int data) {
+            if (llist == null) {
+                return new SinglyLinkedListNode(data);
+            }
+
+            SinglyLinkedListNode newNode = new SinglyLinkedListNode(data);
+            newNode.next = llist;
+            return newNode;
+        }
 
         public class SinglyLinkedListNode {
             public int data { get; set; }
