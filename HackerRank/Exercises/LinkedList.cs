@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace HackerRank.Exercises {
-    public static class DataStructures {
+    public static class LinkedList {
         static SinglyLinkedListNode DeleteAtIndex(SinglyLinkedListNode head, int position) {
             if (position == 0) {
                 return head.next;
