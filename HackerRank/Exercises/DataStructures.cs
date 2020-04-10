@@ -4,6 +4,35 @@ using System.Text;
 
 namespace HackerRank.Exercises {
     public static class DataStructures {
+        static SinglyLinkedListNode DeleteAtIndex(SinglyLinkedListNode head, int position) {
+            if (position == 0) {
+                return head.next;
+            }
+
+            SinglyLinkedListNode ptr = head;
+
+            int index = 1;
+
+            while (position != index && ptr.next != null) {
+                ptr = ptr.next;
+                index++;
+            }
+
+            ptr.next = ptr.next.next;
+            // What happens to the deleted node, is it collected?
+
+            return head;
+        }
+
+        static SinglyLinkedListNode DeleteAtIndexRecursive(SinglyLinkedListNode head, int position) {
+            if (position == 0) {
+                return head.next;
+            }
+
+            head.next = DeleteAtIndexRecursive(head.next, position - 1);
+            return head;
+        }
+
         static SinglyLinkedListNode InsertAtIndex(SinglyLinkedListNode head, int data, int position) {
             if (head == null) {
                 return new SinglyLinkedListNode(data);
@@ -20,6 +49,8 @@ namespace HackerRank.Exercises {
                 index++;
             }
 
+            // Our ptr is now pointing to the correctly indexed node and we now need to insert a new node at this index
+
             // Inserting the node requires a temp object
             SinglyLinkedListNode tempNode = new SinglyLinkedListNode(data);
 
@@ -28,7 +59,7 @@ namespace HackerRank.Exercises {
 
             // The ptr's next now points to our tempNode
             ptr.next = tempNode;
-            
+
             // Why would you return the head node? Aside from the question asks for it
             // I get that we are dealing with reference types here
             return head;
