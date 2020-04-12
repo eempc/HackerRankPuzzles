@@ -4,6 +4,18 @@ using System.Text;
 
 namespace HackerRank.Exercises {
     public static class LinkedList {
+
+        static SinglyLinkedListNode ReverseList(SinglyLinkedListNode head) {
+            if (head == null | head.next == null) {
+                return head;
+            }
+
+            SinglyLinkedListNode temp = ReverseList(head.next);
+            head.next.next = head;
+            head.next = null;
+            return temp;
+        }
+
         static SinglyLinkedListNode DeleteAtIndex(SinglyLinkedListNode head, int position) {
             if (position == 0) {
                 return head.next;
@@ -82,13 +94,13 @@ namespace HackerRank.Exercises {
             return head;
         }
 
-        static SinglyLinkedListNode InsertAtHead(SinglyLinkedListNode llist, int data) {
-            if (llist == null) {
+        static SinglyLinkedListNode InsertAtHead(SinglyLinkedListNode head, int data) {
+            if (head == null) {
                 return new SinglyLinkedListNode(data);
             }
 
             SinglyLinkedListNode newNode = new SinglyLinkedListNode(data);
-            newNode.next = llist;
+            newNode.next = head;
             return newNode;
         }
 
