@@ -4,6 +4,20 @@ using System.Text;
 
 namespace HackerRank.Exercises {
     public static class LinkedList {
+        static int getNode3(SinglyLinkedListNode head, int positionFromTail) {
+            // Like getNode2 but made super succinct, note the for loop's second argument is a proper boolean that doesn't involve 'i'      
+            SinglyLinkedListNode result = head;
+
+            for (int i = 0; head.next != null; i++) {
+                head = head.next;
+                if (i >= positionFromTail) {
+                    result = result.next;
+                }
+            }
+
+            return result.data;
+        }
+
         static int getNode2(SinglyLinkedListNode head, int positionFromTail) {
             // The race car anology method, both cars "current" and "result" have the same speed but current starts first
             // Second car "result" starts when the index counter here reaches higher than positionFromTail, the reversed index
