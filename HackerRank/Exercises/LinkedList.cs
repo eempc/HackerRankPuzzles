@@ -5,6 +5,24 @@ using System.Text;
 namespace HackerRank.Exercises {
     public static class LinkedList {
 
+        static int getNode(SinglyLinkedListNode head, int positionFromTail) {
+            if (head == null || head.next == null) {
+                return head.data;
+            }
+
+            int counter = 0;
+
+            List<int> list = new List<int>();
+
+            while (head.next != null) {
+                list.Add(head.data);
+                head = head.next;
+                counter++;
+            }
+
+            return list[counter-positionFromTail];
+        }
+
         static SinglyLinkedListNode ReverseList(SinglyLinkedListNode head) {
             if (head == null | head.next == null) {
                 return head;
@@ -110,6 +128,10 @@ namespace HackerRank.Exercises {
 
             public SinglyLinkedListNode(int datum) {
                 data = datum;
+            }
+
+            public SinglyLinkedListNode() {
+
             }
         }
 
