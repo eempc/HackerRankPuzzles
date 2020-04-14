@@ -14,10 +14,12 @@ namespace HackerRank.Exercises {
 
             while (current != null) {
                 current = current.next; // this is how to iterate through a linked list as per normal method, this is the leading race Car "current", if you are looking for a particular value at an index, then you can stop when the index counter has reached it
-                index++;
-                if (index > positionFromTail) { // this logic here, controls when the second car "result" should start
+                
+                if (index >= positionFromTail) { // this logic here, controls when the second car "result" should start
                     result = result.next; // then it will start to iterate through a linked list as per normal but it started late according to position from tail.
                 }
+
+                index++; // this goes at the end
             }
 
             return result.data;
