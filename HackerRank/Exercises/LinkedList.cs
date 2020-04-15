@@ -4,6 +4,27 @@ using System.Text;
 
 namespace HackerRank.Exercises {
     public static class LinkedList {
+        static DoublyLinkedListNode reverse2(DoublyLinkedListNode head) {
+            // Switcheroo version
+            if (head == null || head.next == null) {
+                return head;
+            }
+            
+            DoublyLinkedListNode ptr = head;
+
+            while (ptr != null) {
+                // Switch up here
+                // Python has a better way to switch:   ptr.prev, ptr.next = ptr.next, ptr.prev
+                DoublyLinkedListNode temp = ptr.next;
+                ptr.next = ptr.prev;
+                ptr.prev = temp;
+
+                head = ptr;
+                ptr = temp; // Making use of the temp more than once, amazing
+            }
+
+            return head;
+        }
 
         static DoublyLinkedListNode reverse(DoublyLinkedListNode head) {
             // This is the same as if it were a singly list
