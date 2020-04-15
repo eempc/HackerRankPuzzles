@@ -4,12 +4,31 @@ using System.Text;
 
 namespace HackerRank.Exercises {
     public static class LinkedList {
+
+        static SinglyLinkedListNode removeDuplicates(SinglyLinkedListNode head) {
+            if (head == null || head.next == null) {
+                return head;
+            }
+
+            SinglyLinkedListNode temp = head;
+
+            while (temp.next != null) {
+                if (temp.data == temp.next.data) {
+                    temp.next = temp.next.next;
+                } else {
+                    temp = temp.next;
+                }
+            }
+
+            return head;
+        }
+
         static int getNode3(SinglyLinkedListNode head, int positionFromTail) {
             // Like getNode2 but made super succinct, note the for loop's second argument is a proper boolean that doesn't involve 'i'      
             SinglyLinkedListNode result = head;
 
             for (int i = 0; head.next != null; i++) {
-                head = head.next;
+                head = head.next; // it alters the list i think
                 if (i >= positionFromTail) {
                     result = result.next;
                 }
