@@ -5,6 +5,20 @@ using System.Text;
 namespace HackerRank.Exercises {
     public static class LinkedList {
 
+        static DoublyLinkedListNode reverse(DoublyLinkedListNode head) {
+            // This is the same as if it were a singly list
+            if (head == null || head.next == null) {
+                return head;
+            }
+
+            DoublyLinkedListNode top = reverse(head.next);
+            head.next.next = head;
+            head.next = null;
+
+            return top;
+        }
+
+
         static SinglyLinkedListNode removeDuplicates(SinglyLinkedListNode head) {
             if (head == null || head.next == null) {
                 return head;
@@ -184,6 +198,19 @@ namespace HackerRank.Exercises {
             }
 
             public SinglyLinkedListNode() {
+
+            }
+        }
+
+        public class DoublyLinkedListNode {
+            public int data { get; set; }
+            public DoublyLinkedListNode next { get; set; }
+            public DoublyLinkedListNode prev { get; set; }
+
+            public DoublyLinkedListNode(int datum) {
+                data = datum;
+            }
+            public DoublyLinkedListNode() {
 
             }
         }
