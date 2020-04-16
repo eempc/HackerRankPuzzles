@@ -123,7 +123,7 @@ namespace HackerRank {
 
             // Decoding from Morse to Latin letters
 
-            Trees.Morse();
+            Trees.MorseToLetters("-.- .. - - . -.");
             
         }
 

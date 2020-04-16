@@ -4,6 +4,32 @@ using System.Text;
 
 namespace HackerRank.Exercises {
     class Trees {
+
+        static Node Insert(Node root, int value) {
+            // Given the root of a binary search tree, insert value in the right place
+            // Assume no duplicate values
+            if (root == null) {
+                return new Node(value, null, null);
+            }
+
+            if (root.data > value) {
+                root.left = Insert(root.left, value);
+            } else if (root.data < value) {
+                root.right = Insert(root.right, value);
+            }
+
+            return root;
+        }
+
+
+        static Dictionary<char, string> morse = new Dictionary<char, string>() {
+            {'A', ".-" },
+            {'B', "-..." },
+            {'C', "-.-." }
+        };
+        
+
+
         static Node c = new Node('C', null, null);
         static Node f = new Node('F', null, null);
         static Node h = new Node('H', null, null);
@@ -34,9 +60,9 @@ namespace HackerRank.Exercises {
         static Node e = new Node('E', i, a);
         static Node t = new Node('T', n, m);
 
-        static Node start = new Node(32, e, t); // 32 is space
+        readonly static Node start = new Node(32, e, t); // 32 is space
 
-        public static void Morse(string word = "-.-. .- -") {
+        public static void MorseToLetters(string word = "-.-. .- -") {
             string[] morseLetters = word.Split(' ');
             foreach (string str in morseLetters) {
                 //Console.WriteLine(str);
@@ -46,6 +72,9 @@ namespace HackerRank.Exercises {
 
 
         public static char GetMorseLetter(string str) {
+            if (string.IsNullOrEmpty(str)) {
+                return '?';
+            }
             
             Node node = start;
 
@@ -54,6 +83,8 @@ namespace HackerRank.Exercises {
                     node = node.left;
                 } else if (c == '-') {
                     node = node.right;
+                } else {
+                    return '?';
                 }
             }
 
