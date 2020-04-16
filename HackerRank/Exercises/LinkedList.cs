@@ -19,8 +19,8 @@ namespace HackerRank.Exercises {
                 ptr.next = ptr.prev;
                 ptr.prev = temp;
 
-                head = ptr;
-                ptr = temp; // Making use of the temp more than once, amazing
+                head = ptr; // this here makes a new head from the afore-switched one
+                ptr = temp; // normally you would do ptr = ptr.next but it was modified, but luckily we made a temp copy of ptr.next before we modified it
             }
 
             return head;
