@@ -201,13 +201,13 @@ namespace HackerRank.Exercises {
             return head;
         }
 
-        static SinglyLinkedListNode InsertAtHead(SinglyLinkedListNode head, int data) {
-            if (head == null) {
+        static SinglyLinkedListNode InsertAtHead(SinglyLinkedListNode llist, int data) {
+            if (llist == null) {
                 return new SinglyLinkedListNode(data);
             }
 
             SinglyLinkedListNode newNode = new SinglyLinkedListNode(data);
-            newNode.next = head;
+            newNode.next = llist;
             return newNode;
         }
 
