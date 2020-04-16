@@ -121,6 +121,10 @@ namespace HackerRank {
 
             Trees.preOrderRecursive(one);
 
+            // Decoding from Morse to Latin letters
+
+            Trees.Morse();
+            
         }
 
 
