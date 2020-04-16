@@ -111,6 +111,16 @@ namespace HackerRank {
             Console.WriteLine(Mathematics.ExcelLettersToNumber("AD"));
             Console.WriteLine(Mathematics.ExcelNumberToLetters(53));
 
+            Console.WriteLine("----------------TreeNode--------------");
+            Node six = new Node(6, null, null);
+            Node four = new Node(4, null, null);
+            Node three = new Node(3, null, four);
+            Node five = new Node(5, three, six);
+            Node two = new Node(2, null, five);
+            Node one = new Node(1, null, two);
+
+            Trees.preOrderRecursive(one);
+
         }
 
 
