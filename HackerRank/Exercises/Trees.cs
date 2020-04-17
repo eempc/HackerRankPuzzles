@@ -5,22 +5,59 @@ using System.Text;
 namespace HackerRank.Exercises {
     class Trees {
 
+        static int TreeHeight(Node root) {
+            int leftHeight = 0;
+            int rightHeight = 0;
+
+            if (root.left != null) {
+                leftHeight = 1 + TreeHeight(root.left);
+            }
+
+            if (root.right != null) {
+                rightHeight = 1 + TreeHeight(root.right);
+            }
+
+            return Math.Max(leftHeight, rightHeight);
+
+        }
+
+        static int TreeHeight2(Node root) {
+            if (root == null) {
+                return -1;
+            }
+
+            return Math.Max(TreeHeight2(root.left), TreeHeight2(root.right)) + 1;
+        }
+
+        static int TreeHeight3(Node root) {
+            if (root == null) {
+                return -1;
+            }
+
+            int left = 1 + TreeHeight3(root.left);
+            int right = 1 + TreeHeight3(root.right);
+
+            return Math.Max(left, right);
+        }
+
+
         static Node Insert(Node root, int value) {
             // Given the root of a binary search tree, insert value in the right place
-            // Assume no duplicate values
+            // Assume no duplicate values as this should not be allowed
+            // This is inserting into an empty space
             if (root == null) {
                 return new Node(value, null, null);
             }
 
-            if (root.data > value) {
+            // If value is less than current node, go left. If the tree allows duplicates then it usually goes left
+            if (value < root.data) {
                 root.left = Insert(root.left, value);
-            } else if (root.data < value) {
+            } else if (value > root.data) {
                 root.right = Insert(root.right, value);
             }
 
             return root;
         }
-
 
         static Dictionary<char, string> morse = new Dictionary<char, string>() {
             {'A', ".-" },
@@ -28,7 +65,9 @@ namespace HackerRank.Exercises {
             {'C', "-.-." }
         };
         
-
+        // The sorted dictionary is a binary tree structure, it keeps the (string) keys in alphabetical order
+        // Ordered dictionary keeps the order that the keys/values are added so it can be accessed by index as well as key
+        // Regular dictionary does not keep order at all
 
         static Node c = new Node('C', null, null);
         static Node f = new Node('F', null, null);
@@ -70,7 +109,7 @@ namespace HackerRank.Exercises {
             }
         }
 
-
+        // Method to translate '.' and '-' to letters
         public static char GetMorseLetter(string str) {
             if (string.IsNullOrEmpty(str)) {
                 return '?';
