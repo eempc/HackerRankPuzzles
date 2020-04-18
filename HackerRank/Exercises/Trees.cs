@@ -11,10 +11,10 @@ namespace HackerRank.Exercises {
             }
 
             Queue<Node> queue = new Queue<Node>();
-            queue.Enqueue(root);
+            queue.Enqueue(root); // JS = push, Java = offer/add
 
             while (queue.Count != 0) {
-                Node temp = queue.Dequeue();
+                Node temp = queue.Dequeue(); // JS = shift, Java = poll/remove
                 Console.WriteLine(temp.data);
                 if (temp.left != null) {
                     queue.Enqueue(temp.left);
