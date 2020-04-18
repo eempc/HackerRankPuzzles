@@ -119,7 +119,7 @@ namespace HackerRank {
             Node two = new Node(2, null, five);
             Node one = new Node(1, null, two);
 
-            Trees.preOrderRecursive(one);
+            Trees.Traversal(one);
 
             // Decoding from Morse to Latin letters
 

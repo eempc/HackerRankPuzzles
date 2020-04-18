@@ -29,13 +29,13 @@ namespace HackerRank.Exercises {
             return Math.Max(TreeHeight2(root.left), TreeHeight2(root.right)) + 1;
         }
 
-        static int TreeHeight3(Node root) {
+        static int height(Node root) {
             if (root == null) {
                 return -1;
             }
 
-            int left = 1 + TreeHeight3(root.left);
-            int right = 1 + TreeHeight3(root.right);
+            int left = 1 + height(root.left);
+            int right = 1 + height(root.right);
 
             return Math.Max(left, right);
         }
@@ -180,7 +180,7 @@ namespace HackerRank.Exercises {
 
         }
 
-        public static void preOrderRecursive(Node root) {
+        public static void Traversal(Node root) {
             // The recursive method is easier to understand
             if (root == null) {
                 return;
@@ -188,10 +188,14 @@ namespace HackerRank.Exercises {
 
             // If you want operations to be in order, they go before the recursive methods
             // System.out.print(root.data+" ");
-            Console.WriteLine(root.data); // Put after the recursives to get reverse order
             
-            preOrderRecursive(root.left);
-            preOrderRecursive(root.right);
+
+            Traversal(root.left);
+
+            // Put in the middle if you want in ascending order
+            Console.WriteLine(root.data);
+
+            Traversal(root.right);
 
             // Put operations after the recursives if you want them done in reverse order
 
