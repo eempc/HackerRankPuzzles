@@ -4,6 +4,29 @@ using System.Text;
 
 namespace HackerRank.Exercises {
     class Trees {
+        public static void LevelOrderTraversal(Node root) {
+            // Traverse the tree from left to right by row
+            if (root == null) {
+                return;
+            }
+
+            Queue<Node> queue = new Queue<Node>();
+            queue.Enqueue(root);
+
+            while (queue.Count != 0) {
+                Node temp = queue.Dequeue();
+                Console.WriteLine(temp.data);
+                if (temp.left != null) {
+                    queue.Enqueue(temp.left);
+                }
+
+                if (temp.right != null) {
+                    queue.Enqueue(temp.right);
+                }
+            }
+
+        }
+
 
         static int TreeHeight(Node root) {
             int leftHeight = 0;

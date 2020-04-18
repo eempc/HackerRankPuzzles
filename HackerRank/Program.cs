@@ -124,7 +124,8 @@ namespace HackerRank {
             // Decoding from Morse to Latin letters
 
             Trees.MorseToLetters("-.- .. - - . -.");
-            
+
+            Trees.LevelOrderTraversal(one);
         }
 
 
