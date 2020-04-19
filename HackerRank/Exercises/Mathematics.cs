@@ -42,6 +42,34 @@ namespace HackerRank.Exercises {
             }
 
             Console.WriteLine(result);
+
+            // Single pass method?
+
+            int maximumSum = 0;
+            int theResult = 0;
+
+            for (int i = 1; i <= Math.Sqrt(n); i++) { 
+                if (n % i == 0) {
+                    int sum = SumDigits(i);
+                    if (sum > maximumSum) {
+                        maximumSum = sum;
+                        theResult = i;
+                    } else if (sum == maximumSum) {
+                        theResult = Math.Min(theResult, i);
+                    }
+
+                    sum = SumDigits(n / i);
+                    if (sum > maximumSum) {
+                        maximumSum = sum;
+                        theResult = n / i;
+                    } else if (sum == maximumSum) {
+                        theResult = Math.Min(theResult, n / i);
+                    }
+
+                }
+            }
+
+            Console.WriteLine(theResult);
         }
 
         static int SumDigits (int x) {
