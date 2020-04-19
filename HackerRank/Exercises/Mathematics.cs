@@ -6,7 +6,7 @@ using System.Linq;
 namespace HackerRank.Exercises {
     public class Mathematics {
         static void BestDivisor (int n) {
-            // First make a list to hold the divisors of n
+            // Stage 1 - make a list to hold the divisors of n
             List<int> listOfDivisors = new List<int>();
 
             for (int i = 1; i <= Math.Sqrt(n); i++) { // The square root is just quicker but you could count to n if you wanted
@@ -16,6 +16,7 @@ namespace HackerRank.Exercises {
                 }
             }
 
+            // Stage 2
             // Store these two variables for the iteration
             int max = 0;
             int result = 0;
@@ -35,7 +36,7 @@ namespace HackerRank.Exercises {
                 if (sumOfDigits > max) {
                     max = sumOfDigits;
                     result = x;
-                } else if (sumOfDigits == max) { // But what if it is equal
+                } else if (sumOfDigits == max) { // But what if it is equal?
                     result = Math.Min(result, x);
                 }
             }
@@ -43,6 +44,14 @@ namespace HackerRank.Exercises {
             Console.WriteLine(result);
         }
 
+        static int SumDigits (int x) {
+            int sum = 0;
+            while (x > 0) {
+                sum += x % 10;
+                x /= 10;
+            }
+            return sum;
+        }
 
         public static string ExcelNumberToLetters(int x) {
             // Number to Letter is easier than the other way round
