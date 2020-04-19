@@ -5,7 +5,43 @@ using System.Linq;
 
 namespace HackerRank.Exercises {
     public class Mathematics {
+        static void BestDivisor (int n) {
+            // First make a list to hold the divisors of n
+            List<int> listOfDivisors = new List<int>();
 
+            for (int i = 1; i <= Math.Sqrt(n); i++) { // The square root is just quicker but you could count to n if you wanted
+                if (n % i == 0) { // If modulo i == 0 then it is a divisor
+                    listOfDivisors.Add(i); // Add the left divisor
+                    listOfDivisors.Add(n / i); // Add the right divisor (this is only needed if you use the square root above)
+                }
+            }
+
+            // Store these two variables for the iteration
+            int max = 0;
+            int result = 0;
+
+            // Then iterate the divisors, for each number add the sum of the digits
+            foreach (int x in listOfDivisors) {
+                int sumOfDigits = 0;
+                int temp = x; // This temp is needed as we cannot modify x in the while loop
+                
+                // Use thise code to add the sum of the digits
+                while (temp > 0) {
+                    sumOfDigits += temp % 10;
+                    temp /= 10;
+                }
+
+                // With our sum of digits, is it bigger than the old largest max?
+                if (sumOfDigits > max) {
+                    max = sumOfDigits;
+                    result = x;
+                } else if (sumOfDigits == max) { // But what if it is equal
+                    result = Math.Min(result, x);
+                }
+            }
+
+            Console.WriteLine(result);
+        }
 
 
         public static string ExcelNumberToLetters(int x) {
@@ -37,7 +73,9 @@ namespace HackerRank.Exercises {
             int total = 0;
 
             for (int i = 0; i < str.Length; i++) {
-                int value = LetterToNumber(str[str.Length - 1 - i]) * (int)Math.Pow(26,i);
+                // Take the last character and get its numerical value and multiply it by the base to the power of its position
+                //int value = LetterToNumber(str[str.Length - 1 - i]) * (int)Math.Pow(26,i);
+                int value = LetterToNumber(str[i]) * (int)Math.Pow(26,str.Length - 1 - i);
                 total += value;
             }
 
