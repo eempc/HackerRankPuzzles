@@ -5,6 +5,23 @@ using System.Linq;
 
 namespace HackerRank.Exercises {
     public class Mathematics {
+
+        static int restaurant(int l, int b) {
+            if (l == b) return 1;
+
+            int greatestCommonDenominator = 0;
+
+            for (int i = l; i >= 1; i--) {
+                if (l % i == 0 && b % i == 0) {
+                    greatestCommonDenominator = i;
+                    break;
+                }
+            }
+
+            return (l / greatestCommonDenominator) * (b / greatestCommonDenominator);
+
+        }
+
         public static int summingSeries(long n) {
             long modulo = (long)Math.Pow(10, 9) + 7;
             long x = n % modulo;
