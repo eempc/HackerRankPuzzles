@@ -5,7 +5,27 @@ using System.Linq;
 
 namespace HackerRank.Exercises {
     public class Mathematics {
-        static void BestDivisor (int n) {
+        public static int summingSeries(long n) {
+            long modulo = (long)Math.Pow(10, 9) + 7;
+            long x = n % modulo;
+            return (int)((x * x) % modulo);
+        }
+
+
+        public static int Summing(long n) {
+            long total = 0;
+            for (int i = 1; i <= n; i++) {
+                total += ((i * i) - (i - 1) * (i - 1));
+            }
+
+            return (int)(total % (Math.Pow(10, 9) + 7));
+        }
+
+        static int Calculation(long x) {            
+            return (int)((x * x) - (x - 1) * (x - 1));
+        }
+
+        static void BestDivisor(int n) {
             // Stage 1 - make a list to hold the divisors of n
             List<int> listOfDivisors = new List<int>();
 
@@ -25,7 +45,7 @@ namespace HackerRank.Exercises {
             foreach (int x in listOfDivisors) {
                 int sumOfDigits = 0;
                 int temp = x; // This temp is needed as we cannot modify x in the while loop
-                
+
                 // Use thise code to add the sum of the digits
                 while (temp > 0) {
                     sumOfDigits += temp % 10;
@@ -48,7 +68,7 @@ namespace HackerRank.Exercises {
             int maximumSum = 0;
             int theResult = 0;
 
-            for (int i = 1; i <= Math.Sqrt(n); i++) { 
+            for (int i = 1; i <= Math.Sqrt(n); i++) {
                 if (n % i == 0) {
                     int sum = SumDigits(i);
                     if (sum > maximumSum) {
@@ -72,7 +92,7 @@ namespace HackerRank.Exercises {
             Console.WriteLine(theResult);
         }
 
-        static int SumDigits (int x) {
+        static int SumDigits(int x) {
             int sum = 0;
             while (x > 0) {
                 sum += x % 10;
@@ -112,7 +132,7 @@ namespace HackerRank.Exercises {
             for (int i = 0; i < str.Length; i++) {
                 // Take the last character and get its numerical value and multiply it by the base to the power of its position
                 //int value = LetterToNumber(str[str.Length - 1 - i]) * (int)Math.Pow(26,i);
-                int value = LetterToNumber(str[i]) * (int)Math.Pow(26,str.Length - 1 - i);
+                int value = LetterToNumber(str[i]) * (int)Math.Pow(26, str.Length - 1 - i);
                 total += value;
             }
 
@@ -191,7 +211,7 @@ namespace HackerRank.Exercises {
 
             // Final pass is O(√n/4)
 
-            for (int i = 3; i <= Math.Sqrt(x); i+=2) {                
+            for (int i = 3; i <= Math.Sqrt(x); i += 2) {
                 if (x % i == 0) return false;
             }
 
