@@ -6,20 +6,45 @@ using System.Linq;
 namespace HackerRank.Exercises {
     public class Mathematics {
 
-        static int restaurant(int l, int b) {
-            if (l == b) return 1;
+        static double[] movingTiles(int l, int s1, int s2, int[] queries) {
+            double[] results = new double[queries.Length];
+            double relativeHorizontalVelocity = Convert.ToDouble(s2) - Convert.ToDouble(s1); 
 
-            int greatestCommonDenominator = 0;
+            for (int i = 0; i < queries.Length; i++) {
+                double targetRelativeHorizontalLength = l - Math.Sqrt(Convert.ToDouble(queries[i]));
+                double time = Math.Sqrt(2) * targetRelativeHorizontalLength / relativeHorizontalVelocity;
+                results[i] = time;
+            }
+
+            return results;
+        }
+
+        static int restaurant(int l, int b) {
+            int largestCommonDivisor = 0;
 
             for (int i = l; i >= 1; i--) {
                 if (l % i == 0 && b % i == 0) {
-                    greatestCommonDenominator = i;
+                    largestCommonDivisor = i;
                     break;
                 }
             }
 
-            return (l / greatestCommonDenominator) * (b / greatestCommonDenominator);
+            return (l / largestCommonDivisor) * (b / largestCommonDivisor);
 
+        }
+
+
+        // Euclidean Algorithm to find the GCD
+        static int Euclidean(int a, int b) {
+            while (a != 0 && b != 0) {
+                if (a > b) {
+                    a %= b;
+                } else {
+                    b %= a;
+                }
+            }
+
+            return (a == 0) ? b : a;
         }
 
         public static int summingSeries(long n) {

@@ -126,7 +126,18 @@ namespace HackerRank {
             Trees.MorseToLetters("-.- .. - - . -.");
 
             Trees.LevelOrderTraversal(one);
+            Console.WriteLine("------------------------------");
+
+            int aaa = 120;
+            Console.WriteLine(aaa);
+            int bbb = 80;
+            aaa = aaa % bbb;
+            aaa %= 30;
+
+            Console.WriteLine(aaa);
+
         }
+
 
 
         
