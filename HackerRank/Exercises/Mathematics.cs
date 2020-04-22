@@ -5,9 +5,22 @@ using System.Linq;
 
 namespace HackerRank.Exercises {
     public class Mathematics {
-        public static double[] movingTiles2(int l, int s1, int s2, long[] queries) {
+
+        public static int FillingJars(int n, int[][] operations) {
+            int total = 0;
+
+            foreach (int[] op in operations) {
+                total += (op[1] - op[0] + 1) * op[2];
+            }
+
+            return total / n;
+        }
+
+
+
+        public static double[] movingTiles2(int l, int s1, int s2, int[] queries) {
             double[] results = new double[queries.Length];
-            long relativeDiagonalVelocity = Math.Abs(s2 - s1);
+            int relativeDiagonalVelocity = Math.Abs(s2 - s1);
 
             for (int i = 0; i < queries.Length; i++) {
                 double areaOfQ = queries[i];
