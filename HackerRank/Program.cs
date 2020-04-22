@@ -135,7 +135,13 @@ namespace HackerRank {
             aaa %= 30;
 
             Console.WriteLine(aaa);
+            Console.WriteLine("--------------------------------");
 
+            long[] movingTilesQueries = { 258385599125, 248989464296 };
+            double[] movingTiles = Mathematics.movingTiles2(1000000, 1000004, 1000003, movingTilesQueries);
+            foreach (double x in movingTiles) {
+                Console.WriteLine(x);
+            }
         }
 
 

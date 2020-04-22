@@ -5,14 +5,37 @@ using System.Linq;
 
 namespace HackerRank.Exercises {
     public class Mathematics {
+        public static double[] movingTiles2(int l, int s1, int s2, long[] queries) {
+            double[] results = new double[queries.Length];
+            long relativeDiagonalVelocity = Math.Abs(s2 - s1);
+
+            for (int i = 0; i < queries.Length; i++) {
+                double areaOfQ = queries[i];
+                double lengthOfQ = Math.Sqrt(areaOfQ);
+                double diagonalOfQ = Math.Sqrt(2) * lengthOfQ;
+
+                double diagonalOfL = Math.Sqrt(2) * l;
+
+                double travelDistance = diagonalOfL - diagonalOfQ;
+
+                // V = d * t => t = d / V
+                double time = travelDistance / relativeDiagonalVelocity;
+                results[i] = time;
+
+            }
+
+            return results;
+        }
+
 
         static double[] movingTiles(int l, int s1, int s2, int[] queries) {
             double[] results = new double[queries.Length];
-            double relativeHorizontalVelocity = Convert.ToDouble(s2) - Convert.ToDouble(s1); 
+            long relativeDiagonalVelocity = Math.Abs(s2 - s1); 
 
             for (int i = 0; i < queries.Length; i++) {
-                double targetRelativeHorizontalLength = l - Math.Sqrt(Convert.ToDouble(queries[i]));
-                double time = Math.Sqrt(2) * targetRelativeHorizontalLength / relativeHorizontalVelocity;
+                double targetRelativeHorizontalLength = l - Math.Sqrt(queries[i]);
+                double targetRelativeDiagonalLength = Math.Sqrt(2) * targetRelativeHorizontalLength; // Or use Pythagoras for the long version
+                double time = targetRelativeDiagonalLength / relativeDiagonalVelocity;
                 results[i] = time;
             }
 
