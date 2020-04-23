@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using HackerRank.Exercises;
+using HackerRank.Random;
 
 namespace HackerRank {
     class Program {
@@ -142,6 +143,18 @@ namespace HackerRank {
             foreach (double x in movingTiles) {
                 Console.WriteLine(x);
             }
+
+            Console.WriteLine("-----------------");
+            Console.WriteLine(Misc.ContainsDoubledDigits(1234));
+            //Console.WriteLine(Misc.NumberOfDigits(1000,100000));
+            int tt = 0;
+            for (int i = 1000; i < 1100; i++) {
+                if (Misc.IsAscendingDigits(i)) {
+                    tt++;
+                }
+            }
+            Console.WriteLine(tt);
+
         }
 
 
