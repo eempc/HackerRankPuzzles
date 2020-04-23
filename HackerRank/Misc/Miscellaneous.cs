@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace HackerRank.Random {
-    class Misc {
+namespace HackerRank.Misc {
+    public class Miscellaneous {
         // Does this int contains a double number e.g. 11234
         public static bool ContainsDoubledDigits(int x) {
             // Starting from right to left
