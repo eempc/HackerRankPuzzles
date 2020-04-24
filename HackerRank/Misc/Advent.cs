@@ -40,25 +40,16 @@ namespace HackerRank.Misc {
                 string startCoordinates = (i == 0) ? origin : temp;
 
                 string endCommand = wire1[i];
-                
-                
+                               
                 switch (endCommand[0]) {
                     case 'U':
 
                         break;
                 }
-
-
-
-
             }
-
-
-
-
         }
 
-        public static int GetCombinations(int start, int end) {
+        public static int DayFourGetCombinations(int start, int end) {
             int total = 0;
             for (int i = start; i <= end; i++) {
                 if (IsAscendingAndContainsDouble(i)) {
@@ -71,6 +62,7 @@ namespace HackerRank.Misc {
 
 
         public static bool IsAscendingAndContainsDouble(int x) {
+            // O(n) = log(n)
             bool containsDouble = false;
             bool isAscending = true;
 
