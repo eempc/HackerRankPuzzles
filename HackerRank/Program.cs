@@ -159,6 +159,8 @@ namespace HackerRank {
             Console.WriteLine(Orbital.GetVelocityOfCircularEarthOrbit(altitudeISS)); // ISS
             Console.WriteLine(Orbital.GetVelocityOfCircularEarthOrbit(35786000)); // Geostationary
             Console.WriteLine(Orbital.Circumference(Orbital.earthRadius + altitudeISS) / Orbital.GetVelocityOfCircularEarthOrbit(altitudeISS)); // Orbital period in seconds
+            Console.WriteLine("-----------Fib----------");
+            Mathematics.FibonacciWhileLoop();
         }
 
 

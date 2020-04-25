@@ -6,6 +6,36 @@ using System.Linq;
 namespace HackerRank.Exercises {
     public class Mathematics {
 
+        public static void FibonacciForLoop(int limit = 10) {
+            int first = 0;
+            int second = 1;
+            for (int i = 0; i < limit; i++) {
+                int sum = first + second;
+                first = second;
+                second = sum;
+                Console.WriteLine(sum);
+            }
+
+        }
+
+        public static void FibonacciWhileLoop(int limit = 10) {
+            int first = 0;
+            int second = 1;
+            int sum = 0;
+
+            int counter = 0;
+
+            while (counter < limit) {
+                sum = first + second;
+                first = second;
+                second = sum;
+                Console.WriteLine(sum);
+                counter++;
+            }
+
+        }
+
+
         public static int FillingJars(int n, int[][] operations) {
             int total = 0;
 
