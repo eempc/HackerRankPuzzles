@@ -114,11 +114,11 @@ namespace HackerRank.Misc {
             }
         }
        
-        public static int GetInput() {
-            return new Random().Next(100);
+        public static int GetInput(int x = 100) {
+            return new Random().Next(x);
         }
 
-        // I am assuming that planets are (a) listed in order and (b) maximum of planet Z
+        // I am assuming that planets are (a) listed in order and (b) maximum of planet Z (for the sake of clean code)
         // Each input element is like "A)B"
         // For the sake of clean code, I am renaming "COM" to "="
         public static int DaySixOrbitMaps(string[] map) {
@@ -130,14 +130,24 @@ namespace HackerRank.Misc {
             for (int i = 0; i < map.Length; i++) {
                 char orbitingPlanetName = map[i].Last();
                 char staticBodyName = map[i].First();
-                CelestialNode staticBody = dict[staticBodyName]; // By the rules it must exist so not checking for null
-                CelestialNode newPlanet = new CelestialNode(orbitingPlanetName, staticBody.Orbits++, dict[staticBodyName]); // I'm beginnning to think the linked list was unnecessary
+                CelestialNode staticBody = dict[staticBodyName]; // By the rules it must exist so not checking for null, if it doesn't exist then it needs to be created and the total count has to be done after all the planets are added
+                CelestialNode newPlanet = new CelestialNode(orbitingPlanetName, staticBody.Orbits + 1, dict[staticBodyName]);
                 dict.Add(orbitingPlanetName, newPlanet);
-                total += staticBody.Orbits++;
+                total += staticBody.Orbits + 1;
             }
             
             return total;
         }
+
+        public static void DaySevenAmplifier(int[] intcode) {
+            int[] phaseSettingInputs = { 0, 1, 2, 3, 4 }; // Each code can only be used once
+            int amplifierInputSignal;
+
+
+
+
+        }
+
 
     }
 
