@@ -6,6 +6,45 @@ using System.Linq;
 namespace HackerRank.Exercises {
     public class Mathematics {
 
+        public static void FibonacciProperties() {
+            // Fibonacci(0) = 0
+            // Maximum uint = 2^31 - 1 = 2.15 billion = 2,147,483,648 - 1 = 2.15 * 10^9
+            // Maximum int = +/- 2^32 - 1 = 4.3 billion = 4,294,967,296 - 1 = 4.3 * 10^9
+            // Maximum ulong = 2^64 - 1 = 18.4 sextillion = ‭18,446,744,073,709,551,616‬ - 1 = 18.4 * 10^18
+            // Maximum long = +/- 2^63 - 1 = 9.2 sextillion = ‭9,223,372,036,854,775,808‬ - 1 = 9.2 * 10^18
+            // Fibonacci(46) = ‭1,836,311,903‬ = 1.8 billion
+            // Fibonacci(47) ‭= 2,971,215,073‬ = 3 billion
+            // Fibonacci(92) = ‭7,540,113,804,746,346,429‬ = 7.5 sextillion
+            // Fibonacci(93) = ‭12,200,160,415,121,876,738‬ = 12 sextillion 
+
+        }
+
+        // Naive way to determine if a number is fibonacci
+        public static bool IsFibonacci(int n) {
+            bool result = false;
+            int sum = 0;
+            int first = 0;
+            int second = 1;
+
+            while (sum < n) {
+                sum = first + second;
+                if (sum == n) {
+                    return true;
+                }
+
+                first = second;
+                second = sum;
+            }
+
+            return result;
+        }
+
+        public static int BinetFormula(int n) {
+            double root5 = Math.Sqrt(5);
+            return (int)((1 / root5) *  (Math.Pow((1 + root5) / 2, n) - Math.Pow((1 - root5) / 2, n)));
+        }
+
+
         public static void FibonacciForLoop(int limit = 10) {
             int first = 0;
             int second = 1;

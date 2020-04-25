@@ -161,6 +161,11 @@ namespace HackerRank {
             Console.WriteLine(Orbital.Circumference(Orbital.earthRadius + altitudeISS) / Orbital.GetVelocityOfCircularEarthOrbit(altitudeISS)); // Orbital period in seconds
             Console.WriteLine("-----------Fib----------");
             Mathematics.FibonacciWhileLoop();
+            Console.WriteLine(Mathematics.IsFibonacci(13));
+            Console.WriteLine(Mathematics.IsFibonacci(14));
+            for (int i = 0; i < 10; i++) {
+                Console.WriteLine(Mathematics.BinetFormula(i));
+            }
         }
 
 
