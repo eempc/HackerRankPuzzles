@@ -166,6 +166,13 @@ namespace HackerRank {
             for (int i = 0; i < 10; i++) {
                 Console.WriteLine(Mathematics.BinetFormula(i));
             }
+            Console.WriteLine("-----------");
+
+            List<int> coins = Algorithms.GivingChangeGreedyAlgorithm(333);
+            foreach (int x in coins) {
+                Console.WriteLine(x);
+            }
+            
         }
 
 

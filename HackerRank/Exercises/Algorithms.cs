@@ -5,6 +5,23 @@ using System.Linq;
 
 namespace HackerRank.Exercises {
     class Algorithms {
+        // Greedy algorithm
+        // Problem: A cashier is due to give you change in coins
+        // By default humans will use the greedy algorithm to give change which isn't always the fewest coins
+
+        public static List<int> GivingChangeGreedyAlgorithm(int change) {
+            List<int> result = new List<int>();
+            int[] coins = { 200, 100, 50, 20, 10, 5, 2, 1 };
+            foreach (int coin in coins) {
+                while (change >= coin) {
+                    result.Add(coin);
+                    change -= coin;
+                }
+            }
+            return result;
+        }
+
+        // But with the new self-serve machines, you can now programme an algorithm to give out the fewest coins
 
 
 
