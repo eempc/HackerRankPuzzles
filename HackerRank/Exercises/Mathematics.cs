@@ -8,15 +8,25 @@ namespace HackerRank.Exercises {
 
         //  What is the number of divisors of n that are divisible by 2?.
         public static int SherlockDivisors(int n) {
+            if (n % 2 == 1) return 0; // Odd numbers can never have even divisors
+            if (n == 2) return 1;
+
+            double root = Math.Sqrt(n);
+
             int total = 0;
 
-            for (int i = 1; i <= Math.Sqrt(n); i++) {
-                if (n % i == 0 && i % 2 == 0) {
-                    total++;
+            for (int i = 1; i <= (int)root; i++) {
+                if (n % i == 0) {
+                    if (i % 2 == 0) {
+                        total++;
+                    }
+                    if (n / i % 2 == 0 && i != n / i) {
+                        total++;
+                    }
                 }
             }
 
-            return total * 2;
+            return total;          
         }
 
 
