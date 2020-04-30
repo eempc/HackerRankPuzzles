@@ -11,7 +11,7 @@ namespace HackerRank.Exercises {
 
         public static List<int> GivingChangeGreedyAlgorithm(int change) {
             List<int> result = new List<int>();
-            int[] coins = { 200, 100, 50, 20, 10, 5, 2, 1 };
+            int[] coins = { 200, 100, 50, 20, 10, 5, 2, 1 }; // in pennies
             foreach (int coin in coins) {
                 while (change >= coin) {
                     result.Add(coin);

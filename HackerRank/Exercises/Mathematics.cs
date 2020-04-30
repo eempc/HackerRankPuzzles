@@ -6,6 +6,20 @@ using System.Linq;
 namespace HackerRank.Exercises {
     public class Mathematics {
 
+        //  What is the number of divisors of n that are divisible by 2?.
+        public static int SherlockDivisors(int n) {
+            int total = 0;
+
+            for (int i = 1; i <= Math.Sqrt(n); i++) {
+                if (n % i == 0 && i % 2 == 0) {
+                    total++;
+                }
+            }
+
+            return total * 2;
+        }
+
+
         public static void FibonacciProperties() {
             // Fibonacci(0) = 0
             // Maximum uint = 2^31 - 1 = 2.15 billion = 2,147,483,648 - 1 = 2.15 * 10^9
@@ -172,6 +186,7 @@ namespace HackerRank.Exercises {
             return (int)((x * x) - (x - 1) * (x - 1));
         }
 
+        //  This was an arbitrator problem of what someone's criteria of "best divisor" was
         static void BestDivisor(int n) {
             // Stage 1 - make a list to hold the divisors of n
             List<int> listOfDivisors = new List<int>();
@@ -239,6 +254,7 @@ namespace HackerRank.Exercises {
             Console.WriteLine(theResult);
         }
 
+        // Add the individual digits to return a value of their sum
         static int SumDigits(int x) {
             int sum = 0;
             while (x > 0) {
