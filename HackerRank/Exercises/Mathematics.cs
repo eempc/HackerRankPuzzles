@@ -2,9 +2,29 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.IO.Pipes;
 
 namespace HackerRank.Exercises {
     public class Mathematics {
+
+        static void EulersCriterion(int a, int m) {
+            // An equation a = X^2 % prime (m); determine x 
+            // Is not as simple as taking the square root of a to find x
+            // It is about integers, so no floats
+
+
+        }
+
+        long modpow(long base_value, long exponent, long modulus) {
+            base_value = base_value % modulus;
+            long result = 1;
+            while (exponent > 0) {
+                if (exponent % 2 == 1) result = (result * base_value) % modulus;
+                base_value = (base_value * base_value) % modulus;
+                exponent = exponent / 2;
+            }
+            return result;
+        }
 
         //  What is the number of divisors of n that are divisible by 2?.
         public static int SherlockDivisors(int n) {
@@ -16,11 +36,11 @@ namespace HackerRank.Exercises {
             int total = 0;
 
             for (int i = 1; i <= (int)root; i++) {
-                if (n % i == 0) {
+                if (n % i == 0) { // Check if it is a divisor
                     if (i % 2 == 0) {
-                        total++;
+                        total++; // Check if left factor is even
                     }
-                    if (n / i % 2 == 0 && i != n / i) {
+                    if (n / i % 2 == 0 && i != n / i) { // Check if right factor is even && is also not the same as right factor (perfect square)
                         total++;
                     }
                 }
