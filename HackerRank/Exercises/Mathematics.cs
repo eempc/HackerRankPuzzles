@@ -75,7 +75,7 @@ namespace HackerRank.Exercises {
             // Fibonacci(0) = 0
             // Maximum uint = 2^31 - 1 = 2.15 billion = 2,147,483,648 - 1 = 2.15 * 10^9
             // Maximum int = +/- 2^32 - 1 = 4.3 billion = 4,294,967,296 - 1 = 4.3 * 10^9
-            // Maximum ulong = 2^64 - 1 = 18.4 sextillion = ‭18,446,744,073,709,551,616‬ - 1 = 18.4 * 10^18
+            // Maximum ulong = 2^64 - 1 = 18.4 sextillion = ‭18,446,744,073,709,551,616‬ - 1 = 18.4 E 18
             // Maximum long = +/- 2^63 - 1 = 9.2 sextillion = ‭9,223,372,036,854,775,808‬ - 1 = 9.2 * 10^18
             // Fibonacci(46) = ‭1,836,311,903‬ = 1.8 billion
             // Fibonacci(47) ‭= 2,971,215,073‬ = 3 billion
