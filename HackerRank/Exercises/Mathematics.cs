@@ -6,6 +6,27 @@ using System.IO.Pipes;
 
 namespace HackerRank.Exercises {
     public class Mathematics {
+        // Given 16 pool balls all lined up, how many combinations of different lineups are possible?
+        // The answer is 16!, permutations without repetition
+        // If you only want 3 balls, then it is the first three factorials i.e. 16 * 15 * 14
+
+
+
+
+        // Permutations witout repetition involves factorial
+        // Given a string e.g. "000011", with 4 zeroes and 2 ones, how many permutations is that?
+        // How many permutations begin with 1
+        // The formula has been reduced to (n+m+1) / (m-1)! * n!
+
+
+        // Permuations with Repetition
+        static int HowManyPermutations(int characterBase = 26, int passwordLength = 8) {          
+            return (int)Math.Pow(characterBase, passwordLength);
+        }
+
+        // It's very interesting to see this different approach, sum up the digits and divide that by 3
+        // Obviously not doing the n % 3 == 0 check
+        // Sum digits % 3 == 0 crazy
 
         static void EulersCriterion(int a, int m) {
             // An equation a = X^2 % prime (m); determine x 
