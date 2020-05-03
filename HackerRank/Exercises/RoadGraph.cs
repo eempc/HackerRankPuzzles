@@ -6,51 +6,49 @@ namespace HackerRank.Exercises {
     class RoadGraph {
         // A graph is represented by a list of vertices (junctions) and a list of edges (roads)
         List<RoundaboutJunction> roundabouts = new List<RoundaboutJunction>();
-        List<Road> roads = new List<Road>();
+        List<Route> routes = new List<Route>();
 
         public RoundaboutJunction startingJunction = new RoundaboutJunction("Alpha");
-        Road startRoad = new Road("start");       
+        Route firstRoute = new Route("Start Street");
 
         public RoadGraph() {
-            startRoad.EndJunction = new RoundaboutJunction("Bravo");
-            roads.Add(startRoad);
-            startingJunction.RoadList.Add(startRoad);
+            firstRoute.StartJunction = startingJunction;
+            firstRoute.EndJunction = new RoundaboutJunction("Bravo");
+            routes.Add(firstRoute);
+            startingJunction.AttachNewRoad(firstRoute);
+            roundabouts.Add(startingJunction);
         }
 
         public void BuildNewRoad(RoundaboutJunction start, RoundaboutJunction end, string name) {
-            Road newRoad = new Road(name);
+            Route newRoad = new Route(name);
             newRoad.StartJunction = start;
             newRoad.EndJunction = end;
-            roads.Add(newRoad);
+            routes.Add(newRoad);
         }
 
     }
 
     public class RoundaboutJunction {
         public string Name { get; set; }
-        public List<Road> RoadList = new List<Road>();
+        public List<Route> RouteList = new List<Route>();
 
         public RoundaboutJunction(string name) {
             Name = name;
         }
 
-        public RoundaboutJunction() {
-
-        }
-
         // Roads can only be built from junctions
-        public void AttachNewRoad(Road newRoad) {
-            RoadList.Add(newRoad);
+        public void AttachNewRoad(Route newRoute) {
+            RouteList.Add(newRoute);
         }
     }
 
-    public class Road {
+    public class Route {
         public string Name { get; set; }
         public RoundaboutJunction StartJunction { get; set; }
         public RoundaboutJunction EndJunction { get; set; }
         // bool isOneWay;
 
-        public Road(string name) {
+        public Route(string name) {
             Name = name;
         }
     }

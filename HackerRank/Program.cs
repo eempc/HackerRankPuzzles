@@ -104,7 +104,7 @@ namespace HackerRank {
             Console.WriteLine("----------Left Rotation----------------");
 
             int[] wah = { 1, 2, 3, 4, 5 };
-           Warmups.LeftRotation2(5, 2, wah);
+            Warmups.LeftRotation2(5, 2, wah);
 
             Console.WriteLine("------Page Count-----");
             Console.WriteLine(Algorithms.pageCount(6, 2));
@@ -175,14 +175,7 @@ namespace HackerRank {
             
         }
 
-
-
-        
-
-
-
         // Helper methods
-
         public static int Factorial(int x) {
             if (x <= 1) return 1;
             else return x * Factorial(x-1);
