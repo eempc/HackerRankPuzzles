@@ -4,11 +4,11 @@ using System.Text;
 
 namespace HackerRank.Exercises {
     class CityRoutes {
-        Dictionary<string, City> cities = new Dictionary<string, City>();
+        private Dictionary<string, City> cities = new Dictionary<string, City>();
         Dictionary<string, Road> roads = new Dictionary<string, Road>();
 
-        City startCity = new City("Alpha");
-        Road startRoad = new Road("One");
+        readonly City startCity = new City("Alpha");
+        readonly Road startRoad = new Road("One");
         City currentCity;
 
         public CityRoutes() {
@@ -35,7 +35,6 @@ namespace HackerRank.Exercises {
                 cities[cityKey].AddRoad(roads[roadKey]);
             }
         }
-
         public void AttachRoadEnd(string cityKey, string roadKey) {
             if (roads.ContainsKey(roadKey) && cities.ContainsKey(cityKey)) {
                 roads[roadKey].End = cities[cityKey];
@@ -58,13 +57,15 @@ namespace HackerRank.Exercises {
         }
 
         public void TravelToAdjacentCity(string destinationCityKey) {
-            // Check city has been added
+            // Check city exists
             if (cities.ContainsKey(destinationCityKey)) {
-                // Check if the destination city has a road to it from the current city
+                // Check if a road exists between current and destination cities
                 foreach (Road road in currentCity.Roads) {
-                    if (road.End.Name == destinationCityKey || road.Start.Name == destinationCityKey) {
+                    if ((road.Start.Name == destinationCityKey && road.End.Name == currentCity.Name) ||
+                        (road.End.Name == destinationCityKey && road.Start.Name == currentCity.Name)) {
                         // Then set currentCity to the new city
                         currentCity = cities[destinationCityKey];
+                        break;
                     }
                 }
             }
