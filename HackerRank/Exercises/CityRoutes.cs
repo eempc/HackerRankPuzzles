@@ -5,7 +5,7 @@ using System.Text;
 namespace HackerRank.Exercises {
     class CityRoutes {
         private Dictionary<string, City> cities = new Dictionary<string, City>();
-        Dictionary<string, Road> roads = new Dictionary<string, Road>();
+        private Dictionary<string, Road> roads = new Dictionary<string, Road>();
 
         readonly City startCity = new City("Alpha");
         readonly Road startRoad = new Road("One");
@@ -60,9 +60,10 @@ namespace HackerRank.Exercises {
             // Check city exists
             if (cities.ContainsKey(destinationCityKey)) {
                 // Check if a road exists between current and destination cities
+                // By iterating through the current city's List<Road>
                 foreach (Road road in currentCity.Roads) {
-                    if ((road.Start.Name == destinationCityKey && road.End.Name == currentCity.Name) ||
-                        (road.End.Name == destinationCityKey && road.Start.Name == currentCity.Name)) {
+                    // As the current city's roads are already attached to it, we only need to find whether the other end is attached to the destination city
+                    if (road.Start.Name == destinationCityKey || road.End.Name == destinationCityKey) {
                         // Then set currentCity to the new city
                         currentCity = cities[destinationCityKey];
                         break;

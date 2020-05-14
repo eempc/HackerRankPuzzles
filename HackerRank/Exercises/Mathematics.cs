@@ -6,12 +6,22 @@ using System.IO.Pipes;
 
 namespace HackerRank.Exercises {
     public class Mathematics {
+
+        public static long HalloweenChocolateCuts(int k) {
+            long x = (long)k;
+            if (x % 2 == 0) {
+                return (x / 2) * (x / 2);
+            }
+
+            return (x / 2) * ((x / 2) + 1);
+        } 
+
+
+
+
         // Given 16 pool balls all lined up, how many combinations of different lineups are possible?
         // The answer is 16!, permutations without repetition
         // If you only want 3 balls, then it is the first three factorials i.e. 16 * 15 * 14
-
-
-
 
         // Permutations witout repetition involves factorial
         // Given a string e.g. "000011", with 4 zeroes and 2 ones, how many permutations is that?
