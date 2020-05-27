@@ -3,9 +3,32 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System.IO.Pipes;
+using System.Numerics;
 
 namespace HackerRank.Exercises {
     public class Mathematics {
+
+        // Russian Peasant Exponentiation
+        // (a + b * i) ^ k = c + d * i
+        // Return c % m and d % m
+        static int[] ComplexPowersOne (int a, int b, long k, int m) {
+            // Does not handle negatives
+            a %= m;
+            b = b % m;
+            Complex ab = new Complex(a, b);
+            Complex cd = Complex.Pow(ab, k);
+            int real = (int)cd.Real;
+            int imaginary = (int)cd.Imaginary;
+            return new int[] { real % m, imaginary % m };
+        }
+
+        // Recursive method
+        static void ComplexPowersTwo (int a, int b, long k, int m) {
+
+            
+        }
+
+
 
         public static long HalloweenChocolateCuts(int k) {
             long x = (long)k;
