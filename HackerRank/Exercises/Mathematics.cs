@@ -8,6 +8,20 @@ using System.Numerics;
 namespace HackerRank.Exercises {
     public class Mathematics {
 
+        // Starting at coordinates (a,b), you can change your horizontal coordinate by "b" units
+        // and the vertical coordinate by "a" units. If your destination is (x, y), can you get there
+        // Again this is a GCD problem utilising Euclidean
+        // Know the formula (fast) or don't know the formula (slow)
+        static string solve(long a, long b, long x, long y) {
+            if (Euclidean(a, b) == Euclidean(x, y)) {
+                return "YES";
+            }
+
+            return "NO";
+        }
+
+
+
         // Russian Peasant Exponentiation
         // (a + b * i) ^ k = c + d * i
         // Return c % m and d % m
@@ -238,7 +252,7 @@ namespace HackerRank.Exercises {
 
 
         // Euclidean Algorithm to find the GCD
-        static int Euclidean(int a, int b) {
+        static long Euclidean(long a, long b) {
             while (a != 0 && b != 0) {
                 if (a > b) {
                     a %= b;
