@@ -8,6 +8,14 @@ using System.Numerics;
 namespace HackerRank.Exercises {
     public class Mathematics {
 
+        // Distant dots (straight line formulae?)
+        static double DistantDots(int[][] coordinates) {
+
+
+        }
+
+
+
         // Starting at coordinates (a,b), you can change your horizontal coordinate by "b" units
         // and the vertical coordinate by "a" units. If your destination is (x, y), can you get there
         // Again this is a GCD problem utilising Euclidean
