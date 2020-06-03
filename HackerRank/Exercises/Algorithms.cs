@@ -5,6 +5,23 @@ using System.Linq;
 
 namespace HackerRank.Exercises {
     class Algorithms {
+
+        // Divisible Sum Pairs - an array on ints [1, 2, 3, 4, 5] and divisor k
+        // Number of pairs in the array that can be divided by k
+
+        static int divisibleSumPairs(int n, int k, int[] ar) {
+            int count = 0;
+            for (int i = 0; i < ar.Length; i++) {
+                for (int j = i + 1; j < ar.Length; j++) {
+                    if ((ar[i] + ar[j]) % k == 0) {
+                        count++;
+                    }
+                }
+            }
+            return count;
+        }
+
+
         // Greedy algorithm
         // Problem: A cashier is due to give you change in coins
         // By default humans will use the greedy algorithm to give change which isn't always the fewest coins

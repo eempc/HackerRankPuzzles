@@ -8,10 +8,13 @@ using System.Numerics;
 namespace HackerRank.Exercises {
     public class Mathematics {
 
+
+
+
         // Distant dots (straight line formulae?)
         static double DistantDots(int[][] coordinates) {
 
-
+            return 1.00;
         }
 
 
