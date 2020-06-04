@@ -6,6 +6,29 @@ using System.Linq;
 namespace HackerRank.Exercises {
     class Algorithms {
 
+        // Spend highest amount on 2 items with b amount
+
+        static int getMoneySpent(int[] keyboards, int[] drives, int b) {
+            /*
+             * Write your code here.
+             */
+            int result = -1;
+
+            for (int i = 0; i < keyboards.Length; i++) {
+                for (int j = 0; j < drives.Length; j++) {
+                    int total = keyboards[i] + drives[j];
+                    if (total <= b) {
+                        if (total > result) {
+                            result = total;
+                        }
+                    }
+                }
+            }
+
+            return result;
+        }
+
+
         // Divisible Sum Pairs - an array on ints [1, 2, 3, 4, 5] and divisor k
         // Number of pairs in the array that can be divided by k
 
