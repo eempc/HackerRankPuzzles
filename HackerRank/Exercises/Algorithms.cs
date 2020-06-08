@@ -17,6 +17,13 @@ namespace HackerRank.Exercises {
             return (count >= k) ? "NO" : "YES";
         }
 
+        // LINQ version
+        static string angryProfessor2(int k, int[] a) {
+            int count = a.Count(x => x <= 0);
+
+            return (count >= k) ? "NO" : "YES";
+        }
+
         // Spend highest amount on 2 items with b amount
         static int getMoneySpent(int[] keyboards, int[] drives, int b) {
             /*
