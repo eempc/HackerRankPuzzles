@@ -6,8 +6,18 @@ using System.Linq;
 namespace HackerRank.Exercises {
     class Algorithms {
 
-        // Spend highest amount on 2 items with b amount
+        // Return YES if count of where a <= 0 is less than k
+        static string angryProfessor(int k, int[] a) {
+            int count = 0;
 
+            foreach (int x in a) {
+                if (x <= 0) count++;
+            }
+
+            return (count >= k) ? "NO" : "YES";
+        }
+
+        // Spend highest amount on 2 items with b amount
         static int getMoneySpent(int[] keyboards, int[] drives, int b) {
             /*
              * Write your code here.
