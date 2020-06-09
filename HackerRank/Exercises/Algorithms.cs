@@ -6,6 +6,24 @@ using System.Linq;
 namespace HackerRank.Exercises {
     class Algorithms {
 
+        // Take each digit of an integer, modulo that, count blah blah
+
+        static int findDigits(int n) {
+            int count = 0;
+            int x = n;
+
+            while (x > 0) {
+                int d = x % 10;
+
+                if (d != 0 && n % d == 00) count++;
+
+                x /= 10;
+            }
+
+            return count;
+        }
+
+
         // Return YES if count of where a <= 0 is less than k
         static string angryProfessor(int k, int[] a) {
             int count = 0;
