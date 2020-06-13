@@ -6,8 +6,17 @@ using System.Linq;
 namespace HackerRank.Exercises {
     class Algorithms {
 
-        // Take each digit of an integer, modulo that, count blah blah
+        //  Cat mouse
+        static string catAndMouse(int x, int y, int z) {
+            int catA = Math.Abs(z - x);
+            int catB = Math.Abs(z - y);
 
+            if (catA == catB) return "Mouse C";
+
+            return (catA > catB) ? "Cat B" : "Cat A";
+        }
+
+        // Take each digit of an integer, modulo that, count blah blah
         static int findDigits(int n) {
             int count = 0;
             int x = n;
