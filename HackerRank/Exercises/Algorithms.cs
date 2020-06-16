@@ -5,6 +5,21 @@ using System.Linq;
 
 namespace HackerRank.Exercises {
     class Algorithms {
+        // Is a number divisible by 3 can be determined by whether the sum of its digits is divisible by 3
+        static string canConstruct(int[] a) {
+            int total = 0;
+            foreach (int x in a) {
+                int y = x;
+                while (y > 0) {
+                    total += y % 10;
+                    y /= 10;
+                }
+            }
+
+            return (total % 3 == 0) ? "Yes" : "No";
+
+        }
+
 
         //  Cat mouse
         static string catAndMouse(int x, int y, int z) {
