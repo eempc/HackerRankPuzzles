@@ -172,7 +172,9 @@ namespace HackerRank {
             foreach (int x in coins) {
                 Console.WriteLine(x);
             }
+
             
+
         }
 
         // Helper methods
@@ -190,6 +192,14 @@ namespace HackerRank {
             return x * (x + 1) / 2;
         }
 
+        BaseClass example = new DerivedClass();
+    }
+
+    public class BaseClass {
+
+    }
+
+    public class DerivedClass : BaseClass {
 
     }
 }
