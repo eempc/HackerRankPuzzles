@@ -24,22 +24,28 @@ namespace HackerRank.Exercises {
         }
 
         public static int SmithNumber(int n) {
+            // Sum digits of given number n
             int sumDigits = SumDigits(n);
 
             int sumFactors = 0;
 
+            // Divide by 2 if even number until we get odd number
             while (n % 2 == 0) {
                 sumFactors += 2;
                 n /= 2;
             }
 
+            // Start looping i efficiently
             for (int i = 3; i <= Math.Sqrt(n); i += 2) {
                 while (n % i == 0) {
+                    // If divisible by i (a prime number)
                     sumFactors += SumDigits(i);
                     n /= i;
+                    // NB numbers like 9 and 15 are preceded by 3
                 }
             }
 
+            // Final check for the last prime number, it could be 11 for example, which would sum to 2
             if (n > 2) {
                 sumFactors += SumDigits(n);
             }
