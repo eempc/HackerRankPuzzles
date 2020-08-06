@@ -173,7 +173,9 @@ namespace HackerRank {
                 Console.WriteLine(x);
             }
 
-            
+            Console.WriteLine("-------------");
+
+
 
         }
 
